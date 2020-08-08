@@ -1,0 +1,40 @@
+
+.main_button{
+    margin-top: 80px;
+}
+/* .main_button .btn .but_css{
+    margin-right:20px;
+    margin-left:20px;
+} */
+.register{
+margin-top: 80px;
+display:none;
+}
+.login_css{
+margin-top: 80px;
+margin-left: 247px;
+display:flex;
+}
+.login_css input{
+    padding-right:100px;
+}
+.left,.right{
+width:300px;
+}
+.left{
+float:left;
+margin-left: 200px;
+
+}
+.right{
+margin-left: 200px;
+float:left;
+}
+.but{
+margin-top:10px;
+float:right;
+}
+.main_page button{
+    float: right;
+    color: greenyellow;
+}
