@@ -13,10 +13,28 @@ if (isset($_POST['createUser'])) {
 	$data['type'] = $_POST['type'];
 
   if (addUser($data)) {
-	  require_once '../index.php';
+	//require_once '../login_register.php';
+	echo "<script>location.href='../login_register.php'</script>";
+
 
   }
-} else {
+} 
+elseif (isset($_POST['createUser2'])) {
+	$data['user_name'] = $_POST['user_name'];
+	$data['password'] = $_POST['password'];
+	$data['shop_name'] = $_POST['shop_name'];
+	$data['address'] = $_POST['address'];
+
+
+  if (addUser2($data)) {
+	//require_once '../login_register_user2.php';
+	echo "<script>location.href='../login_register_user2.php'</script>";
+
+
+  }
+} 
+
+else {
 	echo 'You are not allowed to access this page.';
 }
 

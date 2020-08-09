@@ -17,7 +17,7 @@ $user = fetchUser($_GET['id']);
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
   
  <form action="controller/updateUser.php" method="POST" enctype="multipart/form-data">
 

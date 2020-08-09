@@ -27,7 +27,7 @@ $users = fetchAllUser();
 	</style>
 </head>
 <body>
-		<div class="container">
+<div class="container-fluid">
 		<table class="table table-hover">
   <thead class="bg-info th">
     <tr>

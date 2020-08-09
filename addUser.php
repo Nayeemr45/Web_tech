@@ -30,7 +30,7 @@ background-color:red;
 <body>
 
 
-<div class="container">
+<div class="container-fluid">
 <form action="controller/createUser.php" method="POST" enctype="multipart/form-data" id="type">
 <div class="main">
 

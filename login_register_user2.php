@@ -17,11 +17,11 @@
   <a href="index.php"><button type="button" class="btn btn-secondary btn-lg but_css">Back to Home</button>
 </a>
 
-<div class="second_button">
+<!-- <div class="second_button">
     <label for="log2">If you have a printer than </label>
     <a href="login_register_user2.php"><button id="log2" type="button" class="btn btn-primary btn-lg but_css">Login or Register</button>
 </a>
-    </div>
+    </div> -->
    </div>
 
 
@@ -29,10 +29,6 @@
 <div class="register">
 <div class="register_content">
 <div class="left">
-  <div class="form-group">
-    <label for="user_id">User ID :</label>
-    <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" required>
-  </div>
   <div class="form-group">
     <label for="user_name">User Name :</label>
     <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required>
@@ -42,37 +38,23 @@
     <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
   </div>
   <div class="form-group">
-    <label for="email">Email :</label>
-    <input type="text" id="email" name="email" class="form-control"  placeholder="Enter Email" required>
+    <label for="shop_name">Shop Name :</label>
+    <input type="text" id="shop_name" name="shop_name" class="form-control"  placeholder="Enter Shop Name" required>
   </div>
 
-  </div><!-- end left -->
-  <div class="right">
-  <div class="form-group">
-    <label for="date_of_birth">Date of Birth :</label>
-    <input type="date" id="date_of_birth" name="date_of_birth" class="form-control"  placeholder="Enter Date of Birth" required>
-  </div>
-  <div class="form-group">
-    <label for="gender">Gender :</label>
-    <input type="text" id="gender" name="gender" class="form-control"  placeholder="Enter Gender" required>
-  </div>
-  <div class="form-group">
+<!--   <div class="right">
+ -->  <div class="form-group">
     <label for="address">Address :</label>
     <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address" required>
   </div>
 
-  <label for="Type">Select Type :</label>
-
-  <select class="form-control  id="type" name="type" form="type">
-
-<option value="Student">Student</option>
-<option value="Business">Business</option>
-</select>
 
  <div class="but">
- <button type="submit" name = "createUser" class="btn btn-primary">Register</button>
+ <button type="submit" name = "createUser2" class="btn btn-primary">Register</button>
  </div>
- </div><!-- end right -->
+ </div><!-- end left -->
+
+<!--  </div> --><!-- end right -->
 </div> <!-- end_register_content -->
  
   </div><!-- end register -->
@@ -83,10 +65,6 @@
   <form action="controller/User_login.php" method="POST" enctype="multipart/form-data" id="type>
   <div class="form-group">
   <div class="form-group">
-    <label for="user_id">User ID :</label>
-    <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" required>
-  </div>
-  <div class="form-group">
     <label for="user_name">User Name :</label>
     <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required> 
   </div>
@@ -95,7 +73,7 @@
     <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
   </div>
   <div class="but">
- <button type="submit" name = "User_login" class="btn btn-primary">Login</button>
+ <button type="submit" name = "User_login2" class="btn btn-primary">Login</button>
  </div>
 </form>
   </div><!-- end login_css -->

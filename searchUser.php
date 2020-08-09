@@ -8,9 +8,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<style>
-		.container{
-      margin-top: 200px;
-    margin-left: 400px;
+		.main{
+    /* margin-top: 200px; */
+    /* margin-left: 400px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    height: 100vh;
     }
 
     .navbar{
@@ -36,17 +41,18 @@
       <input type="submit" name="findUser" value="Search"/>
     </form> -->
 
-  <div class="container">
-  <h1>SEARCH FOR USERS :</h1>
+    <div class="container-fluid">
+      <div class="main">
+      <h1>SEARCH FOR USERS :</h1>
 
-  <nav class="navbar navbar-light">
-  <form class="form-inline" method="post" action="controller/findUser.php">
+<nav class="navbar navbar-light">
+<form class="form-inline" method="post" action="controller/findUser.php">
 
-    <input class="form-control mr-sm-2" type="search" placeholder="Search User Name" aria-label="Search" name="user_name" required/>
-    <button class="btn btn-outline-info my-2 my-sm-0" type="submit" name="findUser">Search</button>
-  </form>
-</nav>
-  </div>
+  <input class="form-control mr-sm-2" type="search" placeholder="Search User Name" aria-label="Search" name="user_name" required/>
+  <button class="btn btn-outline-info my-2 my-sm-0" type="submit" name="findUser">Search</button>
+</form>
+</nav></div>
+  </div><!-- end container -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
