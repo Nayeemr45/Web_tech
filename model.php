@@ -120,14 +120,14 @@ function loginUser2($data){
         session_start();
         if($count > 0)
     {
-        $_SESSION["user_name2"] = $data["user_name"];
+        $_SESSION["user_name"] = $data["user_name"];
        $_SESSION["password"] = $data["password"];
       // $pass_hash = $data["password"];        
        
-       echo $_SESSION['user_name2'];
+       echo $_SESSION['user_name'];
        echo $_SESSION['password'];
 
-       echo "<script>location.href='welcome.php'</script>";
+       echo "<script>location.href='welcome2.php'</script>";
        /* if(password_verify ($pass_hash, $_SESSION['password'] )){
         echo $_SESSION['password'];
         echo "<br>";

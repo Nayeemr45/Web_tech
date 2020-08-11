@@ -12,13 +12,14 @@ if (isset($_SESSION['user_name'])) {
 	try {
     	
     	$logged_as = $_SESSION['user_name'];
-		require_once '../user_home_page.php';
+		require_once '../user2_home_page.php';
 
     } catch (Exception $ex) {
     	echo $ex->getMessage();
     }
 
 }
+
 
 else{
 
