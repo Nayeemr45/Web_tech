@@ -23,7 +23,7 @@
   footer {
   text-align: center;
   height: 80px;
-  background-color: #e4e4e4;
+  background-color: #fff;
   color: black;
 }
 .footer p{
@@ -35,7 +35,7 @@
 
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav">
-  <a class="navbar-brand" href="#">Print solution</a>
+  <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,7 +48,7 @@
         <a class="nav-link" href="#">How it works</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="#contact_us" >Contact Us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link log_reg" href="login_register.php">Login or Register</a>
@@ -56,11 +56,11 @@
     </ul>
   </div>
 </nav>
-  <div class="header">
+  <div class="header"> 
     <h1>Welcome to Print Solution</h1>
   </div>
 
-  <div class="contactus">
+  <div class="contactus" id="contact_us">
   <p><span style="font-size: 24px;">Contact US</span>
 </p>
   <div class="row">

@@ -20,14 +20,20 @@
     }
 
 /* new */
-.header , .part_2 , .part_3 , .part_4 , .part_5{
+.header , .part_2 ,.part_3{
     display: none;
     justify-content: center;
     align-items: center;
     margin-top: 200px;
     margin-left: 100px;
 }
-
+.part_4{
+  display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 50px;
+}
 
 .sidebar{
   position: fixed;
@@ -94,6 +100,9 @@
   color : #ff4a4a;
 
 }
+.edit_info , .show_info{
+  margin-top : 20px;
+}
     </style>
 
     
@@ -102,7 +111,7 @@
 
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav">
-  <a class="navbar-brand" href="#">Print solution</a>
+  <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -144,8 +153,11 @@
         <li><a href="#" id="print_file" class="btn">
           <span class="title">Print file</span>
           </a></li>
-        <li><a href="#" id="edit_info" class="btn">
-         <span class="title">Edit info</span>
+        <li><a href="#" id="print_info" class="btn">
+          <span class="title">Print Info</span>
+          </a></li>
+        <li><a href="#" id="profile" class="btn">
+         <span class="title">Profile</span>
           </a></li>
     </ul>
   </div>
@@ -170,40 +182,69 @@
 <form class="form-inline" method="post" action="controller/findUser.php">
 
   <input class="form-control mr-sm-2" type="search" placeholder="Search User ID" aria-label="Search" name="user_id" required/>
-  <button class="btn btn-outline-info my-2 my-sm-0" type="submit" name="findUser">Search</button>
+  <button class="btn btn-danger my-2 my-sm-0" type="submit" name="findUser">Search</button>
 </form>
 </nav>
 </div><!-- end print file -->
- </div><!-- end part_3 -->
+ </div><!-- end part_2 -->
 
- <div class="part_3">
-   <div class="edit_info">
+  <div class="part_3">
+      <p>Show the user who already print Document !</p>
+      <p>------------</p>
+      <p>Show the price of the printed Document !</p>
+  </div><!-- end part_3 -->
 
-   <form action="">
-<div class="form-group">
-  <label for="user_name">User Name :</label>
-  <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
-</div>
-<div class="form-group">
-  <label for="password">Password :</label>
-  <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
-</div>
-<div class="form-group">
-  <label for="email">Email :</label>
-  <input type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
-</div>
+ <div class="part_4">
+   <div class="profile">
+ 
+   <div class="profile_button">
+    <button id="show" type="button" class="btn btn-danger btn-lg but_css">Show Info</button>
+    <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
+    </div><!-- end profile_button -->
 
-<div class="form-group">
-  <label for="address">Address :</label>
-  <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
-</div>
+    <div class="show_info">
+    <form action="">
+    <div class="form-group">
+      <label for="user_name">User Name :</label>
+    </div>
+    <div class="form-group">
+      <label for="password">Password :</label>
+    </div>
+    <div class="form-group">
+      <label for="shop_name">Shop Name :</label>
+    </div>
+    <div class="form-group">
+      <label for="address">Address :</label>
+    </div>
+    </div><!-- end show_info -->
 
-<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-<input type="submit" name = "updateUser" value="Update">
-<input type="reset"> 
-</form>
-<!--       <p>edit info!</p>
- -->   </div>
+
+      <div class="edit_info">
+      <form action="">
+    <div class="form-group">
+      <label for="user_name">User Name :</label>
+      <input value="" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password :</label>
+      <input value="" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
+    </div>
+    <div class="form-group">
+      <label for="shop_name">Shop Name :</label>
+      <input value="" type="text" id="shop_name" name="shop_name" class="form-control"  placeholder="Enter Shop Name">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address :</label>
+      <input value="" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
+    </div>
+
+    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+    <button class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">Update</button>
+    </form>
+      </div>
+      
+    </div>
  </div><!-- end part_5 -->
 
 
@@ -221,6 +262,7 @@
             document.querySelector('.part_1').style.display = "none";
             document.querySelector('.part_2').style.display = "none";
             document.querySelector('.part_3').style.display = "none";
+            document.querySelector('.part_4').style.display = "none";
 
          });
 
@@ -230,16 +272,40 @@
             document.querySelector('.part_2').style.display = "flex";
             document.querySelector('.header').style.display = "none";
             document.querySelector('.part_3').style.display = "none";
+            document.querySelector('.part_4').style.display = "none";
 
          });
-          document.getElementById('edit_info').addEventListener("click", function()
+          document.getElementById('print_info').addEventListener("click", function()
           { 
             document.querySelector('.part_1').style.display = "none";
             document.querySelector('.part_2').style.display = "none";
             document.querySelector('.header').style.display = "none";
             document.querySelector('.part_3').style.display = "flex";
+            document.querySelector('.part_4').style.display = "none";
 
          });
+          document.getElementById('profile').addEventListener("click", function()
+          { 
+            document.querySelector('.part_1').style.display = "none";
+            document.querySelector('.part_2').style.display = "none";
+            document.querySelector('.header').style.display = "none";
+            document.querySelector('.part_3').style.display = "none";
+            document.querySelector('.part_4').style.display = "flex";
+            document.querySelector('.edit_info').style.display = "none";
+         });
+         document.getElementById('show').addEventListener("click", function()
+          { 
+            document.querySelector('.show_info').style.display = "flex";
+            document.querySelector('.edit_info').style.display = "none";
+
+          });
+         document.getElementById('edit').addEventListener("click", function()
+          { 
+            document.querySelector('.edit_info').style.display = "grid";
+            document.querySelector('.edit_info').style.gridRow="2 / span 2";
+            document.querySelector('.show_info').style.display = "none";
+
+          });
           
         </script>
         <script>

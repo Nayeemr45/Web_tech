@@ -12,7 +12,7 @@
 
 <div class="container-fluid">
    <div class="main_button">
-   <button id="log" type="button" class="btn btn-primary btn-lg but_css">Login</button>
+   <button id="log" type="button" class="btn btn-danger btn-lg but_css">Login</button>
     <button id="reg" type="button" class="btn btn-secondary btn-lg but_css">Rgister</button>
   <a href="index.php"><button type="button" class="btn btn-secondary btn-lg but_css">Back to Home</button>
 </a>

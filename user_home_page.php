@@ -8,14 +8,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="./CSS/user1.css">
-  <style>
-    .header , .part_2 , .part_3 , .part_4 , .part_5{
+<!--     <link rel="stylesheet" href="CSS/user1.css">
+ -->  <style>
+    .header , .part_2 , .part_3 , .part_4 {
     display: none;
     justify-content: center;
     align-items: center;
     margin-top: 200px;
     margin-left: 100px;
+}
+.part_5{
+  display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 50px;
 }
 .save_file{
   margin-bottom: 200px;
@@ -91,13 +98,24 @@
   margin-left: 100px;
   color : #ff4a4a;
 }
+
+/* profile */
+
+.profile_button{
+  top : 10px;
+}
+.edit_info , .show_info{
+  margin-top : 20px;
+}
+
+
 </style>
 </head>
 <body>
 
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top main_nav">
-  <a class="navbar-brand" href="#">Print solution</a>
+  <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -131,8 +149,8 @@
         <li><a href="#" id="show_file" class="btn">
           <span class="title">Show file</span>
           </a></li>
-        <li><a href="#" id="edit_info" class="btn">
-         <span class="title">Edit info</span>
+        <li><a href="#" id="profile" class="btn">
+         <span class="title">Profile</span>
           </a></li>
     </ul>
   </div>
@@ -165,7 +183,7 @@
 
   <div class="part_3">
   <div class="print_file">
-<div class="input-group mb-3">
+  <div class="input-group mb-3">
   <div class="custom-file">
     <input type="file" class="custom-file-input" id="inputGroupFile02">
     <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
@@ -185,33 +203,74 @@
 
 
  <div class="part_5">
-   <div class="edit_info">
+   <div class="profile">
+   
+   <div class="profile_button">
+    <button id="show" type="button" class="btn btn-danger btn-lg but_css">Show Info</button>
+    <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
+    </div><!-- end profile_button -->
 
-   <form action="">
-<div class="form-group">
-  <label for="user_name">User Name :</label>
-  <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
-</div>
-<div class="form-group">
-  <label for="password">Password :</label>
-  <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
-</div>
-<div class="form-group">
-  <label for="email">Email :</label>
-  <input type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
-</div>
+    <div class="show_info">
+    <form action="">
+    <div class="form-group">
+      <label for="user_id">User ID :</label>
+      <span><?php echo $_SESSION['user_id']; ?></span>
 
-<div class="form-group">
-  <label for="address">Address :</label>
-  <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
-</div>
+    </div>
+    <div class="form-group">
+      <label for="user_name">User Name :</label>
+      <span><?php echo $_SESSION['user_name']; ?></span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password :</label>
+      <span><?php echo $_SESSION['password']; ?></span>
 
-<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-<input type="submit" name = "updateUser" value="Update">
-<input type="reset"> 
-</form>
-<!--       <p>edit info!</p>
- -->   </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email :</label>
+    </div>
+    <div class="form-group">
+      <label for="date_of_birth">Date of Birth :</label>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender :</label>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address :</label>
+    </div>
+    <div class="form-group">
+      <label for="type">Type :</label>
+    </div>
+    </div><!-- end show_info -->
+
+
+      <div class="edit_info">
+      <form action="">
+    <div class="form-group">
+      <label for="user_name">User Name :</label>
+      <input value="" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password :</label>
+      <input value="" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
+    </div>
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input value="" type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address :</label>
+      <input value="" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
+    </div>
+
+    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+    <button class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">Update</button>
+    </form>
+      </div><!-- end edit_info -->
+
+  </div><!-- end profile -->
  </div><!-- end part_5 -->
 
 
@@ -263,7 +322,7 @@
             document.querySelector('.part_5').style.display = "none";
 
          });
-          document.getElementById('edit_info').addEventListener("click", function()
+          document.getElementById('profile').addEventListener("click", function()
           { 
             document.querySelector('.part_1').style.display = "none";
             document.querySelector('.part_3').style.display = "none";
@@ -271,8 +330,21 @@
             document.querySelector('.part_2').style.display = "none";
             document.querySelector('.part_4').style.display = "none";
             document.querySelector('.part_5').style.display = "flex";
-
+            document.querySelector('.edit_info').style.display = "none";
          });
+         document.getElementById('show').addEventListener("click", function()
+          { 
+            document.querySelector('.show_info').style.display = "flex";
+            document.querySelector('.edit_info').style.display = "none";
+
+          });
+         document.getElementById('edit').addEventListener("click", function()
+          { 
+            document.querySelector('.edit_info').style.display = "grid";
+            document.querySelector('.edit_info').style.gridRow="2 / span 2";
+            document.querySelector('.show_info').style.display = "none";
+
+          });
           
         </script>
         <script>
