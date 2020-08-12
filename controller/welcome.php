@@ -24,7 +24,7 @@ else{
 
 	echo "<h1>Please log In !</h1>";
 
-	echo "<br><a href='logout.php'>Logout</a><br>";
+	echo "<br><a href='logout.php'>Go Home</a><br>";
 
 }
 
