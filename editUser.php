@@ -38,7 +38,7 @@ $user = fetchUser($_GET['id']);
   <label for="address">Address :</label>
   <input value="<?php echo $user['address'] ?>" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
 </div>
-
+<?php echo $_GET['id'] ?>
 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 <input type="submit" name = "updateUser" value="Update">
 <input type="reset"> 

@@ -45,6 +45,18 @@ function searchUser($user_name){
     return $rows;
 }
 
+function login_User_info($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `user` WHERE user_id = '$user_id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
 function loginUser($data){
 
 	$conn = db_conn();
@@ -214,6 +226,23 @@ function updateUser($id, $data){
         $stmt->execute([
         	$data['user_name'], $data['password'], $data['email'], $data['address'], $id
         ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+function updateUser1($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE user set user_name = ?, password = ?, email = ?,address = ? where ID = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	$data['user_name'], $data['password'], $data['email'], $data['address'], $id
+        ]);
+        echo "<script>location.href='welcome.php'</script>";
+            echo  $data['password'];
     }catch(PDOException $e){
         echo $e->getMessage();
     }

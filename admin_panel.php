@@ -108,9 +108,6 @@
   margin-top : 20px;
 }
 
-.span_color{
-  color : #dc3545;
-}
 
 </style>
 </head>
@@ -212,74 +209,66 @@
     <button id="show" type="button" class="btn btn-danger btn-lg but_css">Show Info</button>
     <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
     </div><!-- end profile_button -->
-    <?php foreach ($Searched_login_Users as $i => $user): ?>
-				<a href="showUser.php?id=<?php echo $user['id'] ?>"></a>
-			
+
     <div class="show_info">
+    <form action="">
     <div class="form-group">
       <label for="user_id">User ID :</label>
-      <span class ="span_color"><?php echo $user['user_id']; ?></span>
+      <span><?php echo $_SESSION['user_id']; ?></span>
 
     </div>
     <div class="form-group">
       <label for="user_name">User Name :</label>
-      <span class ="span_color"><?php echo $user['user_name']; ?></span>
+      <span><?php echo $_SESSION['user_name']; ?></span>
     </div>
     <div class="form-group">
       <label for="password">Password :</label>
-      <span class ="span_color"><?php echo $user['password']; ?></span>
+      <span><?php echo $_SESSION['password']; ?></span>
 
     </div>
     <div class="form-group">
       <label for="email">Email :</label>
-      <span class ="span_color"><?php echo $user['email'] ?></span>
     </div>
     <div class="form-group">
       <label for="date_of_birth">Date of Birth :</label>
-      <span class ="span_color"><?php echo $user['date_of_birth'] ?></span>
     </div>
     <div class="form-group">
       <label for="gender">Gender :</label>
-      <span class ="span_color"><?php echo $user['gender'] ?></span>
     </div>
 
     <div class="form-group">
       <label for="address">Address :</label>
-      <span class ="span_color"><?php echo $user['address'] ?></span>
     </div>
     <div class="form-group">
       <label for="type">Type :</label>
-      <span class ="span_color"><?php echo $user['type'] ?></span>
     </div>
     </div><!-- end show_info -->
-		<?php endforeach; ?>
 
-		<?php foreach ($Searched_login_Users as $i => $user): ?>
-    <a href="showUser.php?id=<?php echo $user['id'] ?>"></a>
+
       <div class="edit_info">
-      <form action="updateUser1.php" method="POST" enctype="multipart/form-data">
+      <form action="">
     <div class="form-group">
       <label for="user_name">User Name :</label>
-      <input value="<?php echo $user['user_name'] ?>" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
+      <input value="" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
     </div>
     <div class="form-group">
       <label for="password">Password :</label>
-      <input value="<?php echo $user['password'] ?>" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
+      <input value="" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
     </div>
     <div class="form-group">
       <label for="email">Email :</label>
-      <input value="<?php echo $user['email'] ?>" type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
+      <input value="" type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
     </div>
 
     <div class="form-group">
       <label for="address">Address :</label>
-      <input value="<?php echo $user['address'] ?>" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
+      <input value="" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
     </div>
-    <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
-    <input class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">
+
+    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+    <button class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">Update</button>
     </form>
       </div><!-- end edit_info -->
-      <?php endforeach; ?>
 
   </div><!-- end profile -->
  </div><!-- end part_5 -->
@@ -345,8 +334,7 @@
          });
          document.getElementById('show').addEventListener("click", function()
           { 
-            document.querySelector('.show_info').style.display = "grid";
-            document.querySelector('.show_info').style.gridRow="2 / span 2";
+            document.querySelector('.show_info').style.display = "flex";
             document.querySelector('.edit_info').style.display = "none";
 
           });

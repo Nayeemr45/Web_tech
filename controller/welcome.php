@@ -1,8 +1,10 @@
-<?php 
+<?php
+
+require_once '../model.php';
 
 session_start();
 
-if (isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_id'])) {
 	//echo "<h1> Welcome ".$_SESSION['user_name']."</h2>";
 	//echo "<a href='product.php'>Product</a><br>";
 
@@ -11,7 +13,9 @@ if (isset($_SESSION['user_name'])) {
 
 	try {
     	
-    	$logged_as = $_SESSION['user_name'];
+		$logged_as = $_SESSION['user_name'];
+		$Searched_login_Users = login_User_info($_SESSION['user_id']);
+		//require_once '../searchalluser.php';
 		require_once '../user_home_page.php';
 
     } catch (Exception $ex) {
