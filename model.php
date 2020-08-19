@@ -216,6 +216,23 @@ VALUES (:user_name, :password, :shop_name, :address)";
     $conn = null;
     return true;
 }
+function upload_file($data){
+	$conn = db_conn();
+    $selectQuery = "INSERT into path_info (user_id, path_location)
+VALUES (:user_id, :path_location)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	':user_id' => $data['user_id'],
+        	':path_location' => $data['path_location']
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
 
 
 function updateUser($id, $data){

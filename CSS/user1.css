@@ -126,3 +126,13 @@ body {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+
+@media (min-width:992px){
+  .part_1{
+    width:100%;
+    text-align:center;
+    margin-right:auto;
+  }
+
+}

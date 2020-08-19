@@ -112,6 +112,36 @@
   color : #dc3545;
 }
 
+
+@media screen and (max-width:992px){
+  h1{
+    width:100%;
+    text-align:center;
+    margin-right:auto;
+    margin-left:85px;
+  }
+  body {
+    margin-right:auto;
+
+  }
+  .part_5{
+    margin-right:auto;
+    margin-left:190px;
+  }
+  .part_4{
+    margin-right:auto;
+    margin-left:190px;
+  }
+  .part_3{
+    margin-right:auto;
+    margin-left:190px;
+  }
+  .part_2{
+    margin-right:auto;
+    margin-left:295px;
+    font-size:15px;
+  }
+}
 </style>
 </head>
 <body>
@@ -174,11 +204,23 @@
   <div class="save_file">
   <div class="input-group mb-3">
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile02">
+  <?php foreach ($Searched_login_Users as $i => $user): ?>
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+  Select document to save:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+  <input type="submit" value="Save Document" name="submit">
+  </div>
+
+</form>
+<?php endforeach; ?>
+
+   <!--  <input type="file" name="fileToUpload" class="custom-file-input" id="inputGroupFile02">
     <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
   </div>
   <div class="input-group-append">
     <span class="input-group-text" id="">Save File</span>
+  </div> -->
   </div>
   </div>
   </div><!-- end save file -->
@@ -257,7 +299,7 @@
 		<?php foreach ($Searched_login_Users as $i => $user): ?>
     <a href="showUser.php?id=<?php echo $user['id'] ?>"></a>
       <div class="edit_info">
-      <form action="updateUser1.php" method="POST" enctype="multipart/form-data">
+      <form action="updateUser.php" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="user_name">User Name :</label>
       <input value="<?php echo $user['user_name'] ?>" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
@@ -276,7 +318,7 @@
       <input value="<?php echo $user['address'] ?>" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
     </div>
     <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
-    <input class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">
+    <input class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser1" value="Update">
     </form>
       </div><!-- end edit_info -->
       <?php endforeach; ?>
