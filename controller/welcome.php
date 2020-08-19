@@ -15,7 +15,9 @@ if (isset($_SESSION['user_id'])) {
     	
 		$logged_as = $_SESSION['user_name'];
 		$Searched_login_Users = login_User_info($_SESSION['user_id']);
+		$show_file = show_file($_SESSION['user_id']);
 		//require_once '../searchalluser.php';
+		echo $show_file;
 		require_once '../user_home_page.php';
 
     } catch (Exception $ex) {

@@ -56,6 +56,17 @@ function login_User_info($user_id){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+function show_file($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `path_info` WHERE user_id = '$user_id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
 
 function loginUser($data){
 
@@ -233,6 +244,7 @@ VALUES (:user_id, :path_location)";
     $conn = null;
     return true;
 }
+
 
 
 function updateUser($id, $data){

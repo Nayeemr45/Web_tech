@@ -211,7 +211,18 @@
   <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
   <input type="submit" value="Save Document" name="submit">
   </div>
+ <!--  <div class="view_pdf">
+  <div id="viewpdf"></div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
+  
+  <script>
+    var viewer = $('#viewpdf');
+    PDFObject.embed('Appliction--2.pdf');
+  </script>
+  
+  </div> --><!-- end viewpdf -->
 </form>
 <?php endforeach; ?>
 
@@ -243,7 +254,27 @@
  <div class="part_4">
    <div class="show_file">
       <p>File show from server!</p>
-   </div>
+      <table class="table table-hover">
+  <thead class="bg-info th">
+    <tr>
+			<th scope="col">File Name</th>
+    </tr>
+  </thead>
+	<tbody>
+		<?php foreach ($show_file as $i => $show): ?>
+    
+			<tr>
+				<a href="showUser.php?id=<?php echo $show['id'] ?>"></a>
+				<td><?php echo $show['path_location'] ?></td>
+			</tr>
+		<?php endforeach; ?>
+		
+
+	</tbody>
+	
+
+</table>
+   </div><!-- end show file -->
  </div><!-- end part_4 -->
 
 
