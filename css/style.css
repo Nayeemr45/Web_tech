@@ -1,20 +1,63 @@
+
+/* ================ */
+/* nav-bar css */
+/* ================ */
 .navbar{
     background-color: #fff !important;
 }
-/* .navbar .navbar-brand{
-    color: #fff !important;
-}
-.navbar .navbar-nav li a{
-    color: #fff !important;
-} */
+/* ================ */
+/* login-register button border css */
+/* ================ */
 
 .log_reg{
 
     border: 2px solid #000;
     border-radius: 5px;
 }
+
+/* ================ */
+/* header css */
+/* ================ */
 .header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 220px;
+  }
+
+/* ================ */
+/* contact css */
+/* ================ */
+  .contactus{
+    background-color: #fbfbfb;
+    margin-bottom: 100px;
+  }
+
+/* ================ */
+/* footer css */
+/* ================ */
+  footer {
+  text-align: center;
+  height: 80px;
+  background-color: #fff;
+  color: black;
+}
+.footer p{
+    padding-top: 25px;
+}
+/* ================ */
+/* responsive design css */
+/* ================ */
+@media screen and (max-width:992px){
+    .log_reg {
+        padding-left: 5px;
+
+    }
 }

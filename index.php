@@ -6,29 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <style>
-      .header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-    margin-bottom: 220px;
-  }
-  .contactus{
-    background-color: #fbfbfb;
-    margin-bottom: 100px;
-  }
-
-  footer {
-  text-align: center;
-  height: 80px;
-  background-color: #fff;
-  color: black;
-}
-.footer p{
-    padding-top: 25px;
-}
+  
     </style>
 </head>
 <body>
@@ -51,7 +31,9 @@
         <a class="nav-link" href="#contact_us" >Contact Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link log_reg" href="login_register.php">Login or Register</a>
+        <div class="log_reg">
+        <a class="nav-link" href="login_register.php">Login or Register</a>
+        </div>
       </li>
     </ul>
   </div>

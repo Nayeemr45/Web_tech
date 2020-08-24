@@ -79,56 +79,33 @@
 </form>
   
 
-<div class="login_css">
-  <form action="controller/User_login.php" method="POST" enctype="multipart/form-data" id="type>
-  <div class="form-group">
-  <div class="form-group">
-    <label for="user_id">User ID :</label>
-    <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" required>
-  </div>
-  <div class="form-group">
-    <label for="user_name">User Name :</label>
-    <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required> 
-  </div>
-  <div class="form-group">
-    <label for="password">Password :</label>
-    <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
-  </div>
-  <div class="but">
- <button type="submit" name = "User_login" class="btn btn-primary">Login</button>
- </div>
-</form>
+  <div class="login_css">
+    <form action="controller/User_login.php" method="POST" enctype="multipart/form-data" id="type">
+      <div class="form-group">
+        <div class="form-group">
+          <label for="user_id">User ID :</label>
+          <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" required>
+        </div>
+        <div class="form-group">
+          <label for="user_name">User Name :</label>
+          <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required> 
+        </div>
+        <div class="form-group">
+          <label for="password">Password :</label>
+          <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+        </div>
+        <div class="but">
+          <button type="submit" name = "User_login" class="btn btn-primary">Login</button>
+        </div>
+      </div><!-- end form-group -->
+    </form>
   </div><!-- end login_css -->
-
-
-
-
-
-
-    </div><!-- end container -->
+</div><!-- end container -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-          document.getElementById('log').addEventListener("click", function()
-          { document.querySelector('.login_css').style.display = "flex";
-            document.querySelector('.register').style.display = "none";
-
-            document.getElementById('log').style.backgroundColor ="#007bff";
-           document.getElementById('log').style.borderColor ="#007bff";
-           document.getElementById('reg').style.borderColor ="#6c757d";
-           document.getElementById('reg').style.backgroundColor ="#6c757d";
-         });
-           document.getElementById('reg').addEventListener("click", function()
-           { document.querySelector('.register').style.display = "flex";
-           document.getElementById('reg').style.backgroundColor ="#007bff";
-           document.getElementById('reg').style.borderColor ="#007bff";
-           document.getElementById('log').style.borderColor ="#6c757d";
-           document.getElementById('log').style.backgroundColor ="#6c757d";
-            document.querySelector('.login_css').style.display = "none";
-         });
-        </script>
+<script src="js/login_register.js"></script>
 </body>
 </html>

@@ -42,18 +42,6 @@ $users = fetchAllUser();
 			<th scope="col">Action</th>
     </tr>
   </thead>
-<!-- <table>
-	<thead>
-		<tr>
-			<th>User_id</th>
-			<th>User_name</th>
-			<th>Password</th>
-			<th>Date of birth</th>
-			<th>Gender</th>
-			<th>Address</th>
-			<th>Type</th>
-		</tr>
-	</thead> -->
 	<tbody>
 		<?php foreach ($users as $i => $user): ?>
 			<tr>

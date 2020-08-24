@@ -1,41 +1,23 @@
-/* ================ */
-/* All button css */
-/* ================ */
+
 .main_button{
     margin-top: 80px;
 }
-.main_page button{
-    float: right;
-    color: greenyellow;
+/* .main_button .btn .but_css{
+    margin-right:20px;
+    margin-left:20px;
+} */
+.register{
+margin-top: 80px;
+display:none;
 }
-.second_button{
-    float: right;
-}
-
-/* ================ */
-/* Login part css */
-/* ================ */
-
 .login_css{
 margin-top: 80px;
 margin-left: 247px;
 display:flex;
 }
-
-/* ================ */
-/* input form css */
-/* ================ */
 .login_css input{
     padding-right:100px;
 }
-
-/* ================ */
-/* Design Register left and right part css */
-/* ================ */
-.register{
-    margin-top: 80px;
-    display:none;
-    }
 .left,.right{
 width:300px;
 }
@@ -52,10 +34,14 @@ float:left;
 margin-top:10px;
 float:right;
 }
+.main_page button{
+    float: right;
+    color: greenyellow;
+}
+.second_button{
+    float: right;
+}
 
-/* ================ */
-/* responsive design css */
-/* ================ */
 @media screen and (max-width:992px){
     .second_button{
         float: right;
@@ -79,5 +65,10 @@ float:right;
         .left{
             margin-top: 25px;       
         }
+
+        .register{
+            margin-top: 0px;
+            display:none;
+            }
 
 }

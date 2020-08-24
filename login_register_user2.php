@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login_reg.css">
+    <link rel="stylesheet" href="css/login_reg2.css">
 </head>
 <body>
 
@@ -89,24 +89,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-          document.getElementById('log').addEventListener("click", function()
-          { document.querySelector('.login_css').style.display = "flex";
-            document.querySelector('.register').style.display = "none";
+<script src="js/login_register2.js"></script>
 
-            document.getElementById('log').style.backgroundColor ="#007bff";
-           document.getElementById('log').style.borderColor ="#007bff";
-           document.getElementById('reg').style.borderColor ="#6c757d";
-           document.getElementById('reg').style.backgroundColor ="#6c757d";
-         });
-           document.getElementById('reg').addEventListener("click", function()
-           { document.querySelector('.register').style.display = "flex";
-           document.getElementById('reg').style.backgroundColor ="#007bff";
-           document.getElementById('reg').style.borderColor ="#007bff";
-           document.getElementById('log').style.borderColor ="#6c757d";
-           document.getElementById('log').style.backgroundColor ="#6c757d";
-            document.querySelector('.login_css').style.display = "none";
-         });
-        </script>
 </body>
 </html>

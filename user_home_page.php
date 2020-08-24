@@ -8,141 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<!--     <link rel="stylesheet" href="CSS/user1.css">
- -->  <style>
-    .header , .part_2 , .part_3 , .part_4 {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-    margin-left: 100px;
-}
-.part_5{
-  display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    margin-left: 50px;
-}
-.save_file{
-  margin-bottom: 200px;
-}
-.print_file{
-  margin-bottom: 200px;
-}
-
-/* new */
-
-
- .sidebar{
-  position: fixed;
-  top: 60px;
-  left: 0;
-  background: #f8f9fa;
-  width: 200px;
-   height: calc(100% - 80px);
-  border-bottom-left-radius: 20px;
-  transition: all 0.3s ease;
-}
-
- .sidebar ul li{
-    list-style : none;
- }
- .sidebar ul li a{
-
-    display: block;
-    padding: 20px;
-    color: #fff;
-    position: relative;
-    margin-bottom: 1px;
-    color: #000;
-    white-space: nowrap;
-}
-
- .sidebar ul li a:before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: #ff0000;
-  display: none;
-}
-/* 
- .sidebar ul li a span.icon{
-  margin-right: 10px;
-  display: inline-block;
-} */
-
- .sidebar ul li a span.title{
-  display: inline-block;
-}
-
- .sidebar ul li a:hover,
- .sidebar ul li a.active{
-  background: #ff4a4a;
-  color: #fff;
-}
-
- .sidebar ul li a:hover:before,
- .sidebar ul li a.active:before{
-  display: block;
-}
-
-.part_1{
-  display : flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
-  margin-left: 100px;
-  color : #ff4a4a;
-}
-
-/* profile */
-
-.profile_button{
-  top : 10px;
-}
-.edit_info , .show_info{
-  margin-top : 20px;
-}
-
-.span_color{
-  color : #dc3545;
-}
-
-
-@media screen and (max-width:992px){
-  h1{
-    width:100%;
-    text-align:center;
-    margin-right:auto;
-    margin-left:85px;
-  }
-  body {
-    margin-right:auto;
-
-  }
-  .part_5{
-    margin-right:auto;
-    margin-left:190px;
-  }
-  .part_4{
-    margin-right:auto;
-    margin-left:190px;
-  }
-  .part_3{
-    margin-right:auto;
-    margin-left:190px;
-  }
-  .part_2{
-    margin-right:auto;
-    margin-left:295px;
-    font-size:15px;
-  }
-}
-</style>
+    <link rel="stylesheet" href="../CSS/user1.css">
+  <style>
+   
+  </style>
 </head>
 <body>
 
@@ -204,11 +73,11 @@
   <div class="save_file">
   <div class="input-group mb-3">
   <div class="custom-file">
-  <?php foreach ($Searched_login_Users as $i => $user): ?>
+  <?php //foreach ($Searched_login_Users as $i => $user): ?>
   <form action="upload.php" method="post" enctype="multipart/form-data">
   Select document to save:
   <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+  <input type="hidden" name="id" value="<?php echo $Searched_login_Users['id'] ?>">
   <input type="submit" value="Save Document" name="submit">
   </div>
  <!--  <div class="view_pdf">
@@ -224,7 +93,7 @@
   
   </div> --><!-- end viewpdf -->
 </form>
-<?php endforeach; ?>
+<?php //endforeach; ?>
 
    <!--  <input type="file" name="fileToUpload" class="custom-file-input" id="inputGroupFile02">
     <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
@@ -254,26 +123,36 @@
  <div class="part_4">
    <div class="show_file">
       <p>File show from server!</p>
-      <table class="table table-hover">
+      <table class="table table-hover auto-index">
   <thead class="bg-info th">
     <tr>
+      <th scope="col">serial</th>
 			<th scope="col">File Name</th>
+			<th scope="col">p_id</th>
+			<th scope="col">pr</th>
+			<th scope="col">Action</th>
     </tr>
   </thead>
-	<tbody>
+  <tbody>
 		<?php foreach ($show_file as $i => $show): ?>
-    
 			<tr>
-				<a href="showUser.php?id=<?php echo $show['id'] ?>"></a>
-				<td><?php echo $show['path_location'] ?></td>
-			</tr>
-		<?php endforeach; ?>
+            	<td><a href="showfile.php?id=<?php echo $show['id'] ?>"><!-- <?php //echo $show['user_id'] ?> --></a></td>
+        <td><?php $str=$show['path_location']; 
+                  //Removing Directory name
+                  //$result= substr_replace($str ,"",0,11) ;
+                  echo $str;
+
+                  ?></td>
+
+				<td><?php echo $show['printer_id'] ?></td>
+				<td><?php echo $show['print_id'] ?></td>
+	</tr>
+    <?php endforeach; ?>
 		
 
-	</tbody>
-	
-
+        </tbody>
 </table>
+
    </div><!-- end show file -->
  </div><!-- end part_4 -->
 
@@ -361,9 +240,6 @@
 </div><!-- end inside_part -->
 
     </div><!-- end contaiber -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
 <script type="text/javascript">
@@ -446,5 +322,9 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -58,7 +58,7 @@ function login_User_info($user_id){
 }
 function show_file($user_id){
     $conn = db_conn();
-    $selectQuery = "SELECT * FROM `path_info` WHERE user_id = '$user_id'";
+    $selectQuery = "SELECT * FROM `path_info` WHERE user_id = '$user_id' ORDER BY `id` DESC";
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -80,21 +80,25 @@ function loginUser($data){
         	'password' => $data['password']
         ]);
         $count=$stmt->rowCount();
-        echo $count;
+        //echo $count;
         session_start();
         if($count > 0)
-    {
-        $_SESSION["user_id"] = $data["user_id"];
-        $_SESSION["user_name"] = $data["user_name"];
-       $_SESSION["password"] = $data["password"];
-      // $pass_hash = $data["password"];        
-       
-       echo $_SESSION['user_id'];
-       echo $_SESSION['user_name'];
-       echo $_SESSION['password'];
-
-       echo "<script>location.href='welcome.php'</script>";
-       /* if(password_verify ($pass_hash, $_SESSION['password'] )){
+    {   
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            /* $n=$stmt->fetch();
+            print_r($n); */
+            $_SESSION["id"] =$row['id'];
+            //echo $_SESSION["id"]. "<br>";
+            
+            $_SESSION["user_id"] = $data["user_id"];
+            $_SESSION["user_name"] = $data["user_name"];
+            $_SESSION["password"] = $data["password"];
+          
+            echo "<script>location.href='welcome.php'</script>";
+         
+        }
+         /* if(password_verify ($pass_hash, $_SESSION['password'] )){
         echo $_SESSION['password'];
         echo "<br>";
         echo $pass_hash;
@@ -142,7 +146,7 @@ function loginUser2($data){
         echo $count;
         session_start();
         if($count > 0)
-    {
+    {   
         $_SESSION["user_name"] = $data["user_name"];
        $_SESSION["password"] = $data["password"];
       // $pass_hash = $data["password"];        
@@ -151,23 +155,6 @@ function loginUser2($data){
        echo $_SESSION['password'];
 
        echo "<script>location.href='welcome2.php'</script>";
-       /* if(password_verify ($pass_hash, $_SESSION['password'] )){
-        echo $_SESSION['password'];
-        echo "<br>";
-        echo $pass_hash;
-        echo "<br>"; 
-        $h = password_hash(1234,PASSWORD_DEFAULT);
-        echo $h;
-                echo "wow";
-       }
-       else{
-        echo "incorrect pass";
-        echo $_SESSION['password'];
-        echo "<br>";
-        echo $pass_hash;
-        
-       } */
-        //header('Location: ../showUser.php?id=' . $_POST["id"]);
     }
     else{
         echo "<script>alert('uname or pass incorrect!')</script>";
