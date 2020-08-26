@@ -67,6 +67,17 @@ function show_file($user_id){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+function show_print_file($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `path_info` WHERE user_id = '$user_id' ORDER BY `id` DESC";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
 
 function loginUser($data){
 
@@ -171,6 +182,27 @@ function loginUser2($data){
     $conn = null;
     return true;
 }
+
+function addPrint_queue($data){
+	$conn = db_conn();
+    $selectQuery = "INSERT into print_queue (user_id, path_location, is_saved,path_id)
+VALUES (:user_id, :path_location, :is_saved, :path_id)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	':user_id' => $data['user_id'],
+        	':path_location' => $data['path_location'],
+        	':is_saved' => "YES",
+        	':path_id' => $data['path_id'],
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 
 function addUser($data){
 	$conn = db_conn();

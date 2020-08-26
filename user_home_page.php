@@ -108,7 +108,10 @@
 
   <div class="part_3">
   <div class="print_file">
-  <div class="input-group mb-3">
+<!--   echo "<script>location.href='../print_info.php'</script>";
+ -->
+
+<!--   <div class="input-group mb-3">
   <div class="custom-file">
     <input type="file" class="custom-file-input" id="inputGroupFile02">
     <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
@@ -116,7 +119,7 @@
   <div class="input-group-append">
     <span class="input-group-text" id="">Print</span>
   </div>
-</div>
+</div> -->
 </div><!-- end print file -->
  </div><!-- end part_3 -->
 
@@ -145,7 +148,8 @@
                   ?></td>
 
 				<td><?php echo $show['printer_id'] ?></td>
-				<td><?php echo $show['print_id'] ?></td>
+        <td><?php echo $show['print_id'] ?></td>
+        <td><a href="../print_info.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="controller/deleteUser.php?id=<?php echo $show['id'] ?>">Delete</a></td>
 	</tr>
     <?php endforeach; ?>
 		
@@ -321,6 +325,7 @@ for (var i = 0; i < btns.length; i++) {
   this.className += " active";
   });
 }
+
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
