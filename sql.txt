@@ -1,0 +1,4 @@
+INSERT INTO print_queue (user_id, path_location,path_id)
+SELECT user_id, path_location, id
+FROM path_info
+WHERE path_info.id=13;

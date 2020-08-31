@@ -149,7 +149,9 @@
 
 				<td><?php echo $show['printer_id'] ?></td>
         <td><?php echo $show['print_id'] ?></td>
-        <td><a href="../print_info.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="controller/deleteUser.php?id=<?php echo $show['id'] ?>">Delete</a></td>
+        <td><?php echo $show['id'] ?></td>
+        <input type="hidden" name="id" value="<?php echo $show['id'] ?>">
+        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="controller/deleteUser.php?id=<?php echo $show['id'] ?>">Delete</a></td>
 	</tr>
     <?php endforeach; ?>
 		

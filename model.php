@@ -182,23 +182,52 @@ function loginUser2($data){
     $conn = null;
     return true;
 }
+function collectdata($data){
 
-function addPrint_queue($data){
 	$conn = db_conn();
-    $selectQuery = "INSERT into print_queue (user_id, path_location, is_saved,path_id)
-VALUES (:user_id, :path_location, :is_saved, :path_id)";
+    $selectQuery = "SELECT * FROM `path_info` WHERE id = :id";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
-        	':user_id' => $data['user_id'],
-        	':path_location' => $data['path_location'],
-        	':is_saved' => "YES",
-        	':path_id' => $data['path_id'],
+        	'id' => $data['id']
         ]);
+        $count=$stmt->rowCount();
+        session_start();
+        //echo $count;
+        if($count > 0)
+    {   
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            $_SESSION["id"] =$row['id'];         
+            $c_data["user_id"] = $row["user_id"];
+            $c_data["user_name"] = $row["path_location"];
+          
+            echo "<script>location.href='info.php'</script>";
+         
+        }
+    }
+    else{
+
+        $message = '<label>Wrong Data</label>';
+        echo $message;
+    }
+       // return $count;
     }catch(PDOException $e){
         echo $e->getMessage();
     }
     
+    $conn = null;
+    return true;
+}
+function addPrint_queue($id){
+    $conn = db_conn();
+    $selectQuery = "INSERT into print_queue (user_id, path_location, path_id)
+SELECT user_id, path_location, id FROM path_info WHERE path_info.id=$id";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
     $conn = null;
     return true;
 }

@@ -41,7 +41,6 @@ $user = fetchUser($_GET['id']);
 <?php echo $_GET['id'] ?>
 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 <input type="submit" name = "updateUser" value="Update">
-<input type="reset"> 
 </form> 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

@@ -26,15 +26,13 @@ $show_file = fetchShow_file($_GET['id']);
 </head>
 <body>
 <form action="controller/print_queue.php" method="POST" enctype="multipart/form-data" id="type">
-<?php foreach ($show_file as $i => $show): ?>
+<div class="form-group">
+  <input value="<?php echo $_GET['id'] ?>" type="hidden" id="id" name="id" class="form-control">
+</div>
 
-    <input type="hidden" value="<?php $show['user_id']?>" id="user_id" name="user_id" class="form-control">
-    <input type="hidden" value="<?php $show['printer_id']?>" id="path_location" name="" class="form-control">
-    <input type="hidden" value="<?php $show['id']?>" id="id" name="id" class="form-control">
-  
- <button type="submit" name = "print" class="btn btn-primary">Confirm</button>
- <?php endforeach; ?>
-
+<?php echo $_GET['id'] ?>
+<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+<input type="submit" name = "print" value="ADD">
 </form>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
