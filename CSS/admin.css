@@ -1,0 +1,274 @@
+/* ================ */
+/* right side css */
+/* ================ */
+
+.header , .part_3 {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 100px;
+  }
+.part_2 {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+    margin-left: 243px;
+    margin-right: 50px;
+  }
+  .part_5{
+  display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 50px;
+  }
+  .part_4{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 70px !important;
+  }
+  .save_file{
+  margin-bottom: 200px;
+  }
+  .print_file{
+  margin-bottom: 200px;
+  }
+  /* ================ */
+  /* left side css */
+  /* ================ */
+  /* sidebar */
+  /* ================ */
+  
+  .sidebar{
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background: #f8f9fa;
+  width: 200px;
+   height: calc(100% - 80px);
+  border-bottom-left-radius: 20px;
+  transition: all 0.3s ease;
+  }
+  /* ================ */
+  /* sidebar list item*/
+  /* ================ */
+  .sidebar ul li{
+    list-style : none;
+    margin-left: -30px;
+
+  }
+  .sidebar ul li a{
+  
+    display: block;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 1px;
+    color: #000;
+    white-space: nowrap;
+  }
+  
+  .sidebar ul li a:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #ff0000;
+  display: none;
+
+  }
+  
+  .sidebar ul li a span.title{
+  display: inline-block;
+  }
+  
+  .sidebar ul li a:hover,
+  .sidebar ul li a.active{
+  background: #ff4a4a;
+  color: #fff;
+  }
+  
+  .sidebar ul li a:hover:before,
+  .sidebar ul li a.active:before{
+  display: block;
+  }
+  /* ================ */
+  /* end sidebar */
+  /* ================ */
+  
+  
+  /* ================ */
+  /* home part*/
+  /* ================ */
+  
+  .part_1{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  margin-left: 100px;
+  color : #ff4a4a;
+  }
+  /* ================ */
+  /* end home part*/
+  /* ================ */
+  
+  /* ================ */
+  /* profile part*/
+  /* ================ */
+  
+  .profile_button{
+  top : 10px;
+  }
+  .edit_info , .show_info{
+  margin-top : 20px;
+  }
+  
+  .span_color{
+  color : #dc3545;
+  }
+  /* ================ */
+  /* end profile part*/
+  /* ================ */
+  
+  /* table */
+  table,td,th{
+    border:3px solid black;
+}
+.th{
+    text-align:center;
+    text-transform: uppercase;
+    color:white;
+}
+  
+
+
+/*  admin lte*/
+h3{
+    font-size: 2.2rem;
+}
+.content{
+    margin-left: 80px !important;
+    margin-top: -100px !important;
+}
+.card{
+    display: block !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    width: 300px !important;
+    height: 140px !important;
+}
+.footer{
+    display: block;
+    padding: 17px 0px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+    background-color: rgba(71, 71, 71, 0.285);
+    margin-top: 21.15px;
+    margin-right: -20px;
+    margin-left: -20px;
+    border-radius: 4px;
+}
+.footer-text {
+    margin-bottom: -24px !important;
+    margin-top: -10px !important;
+}
+
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* ================ */
+  /* Responsive part*/
+  /* ================ */
+  @media screen and (max-width:992px){
+  h1{
+    width:100%;
+    text-align:center;
+    margin-right:auto;
+  }
+  body {
+    margin-right:auto;
+  
+  }
+  .part_5{
+    margin-right:auto;
+    margin-left:125px;
+    font-size: 14px;
+  }
+  .part_4{
+    margin-right:auto;
+    margin-left:105px;
+    font-size: 12px;
+  }
+  .part_3{
+    margin-right:auto;
+    margin-left:100px;
+  }
+  .part_2{
+    margin-right:auto;
+    margin-left:160px;
+    font-size:15px;
+  }
+  .sidebar{
+    position: fixed;
+    top: 60px;
+    left: -25px;
+    background: #f8f9fa;
+    width: 125px;
+     height: calc(100% - 80px);
+    border-bottom-left-radius: 20px;
+    transition: all 0.3s ease;
+    }
+    .sidebar ul li a{
+  
+      display: block;
+      padding: 20px;
+      padding-left: 2px;
+      color: #fff;
+      position: relative;
+      margin-bottom: 1px;
+      color: #000;
+      white-space: nowrap;
+    }
+  }
+  
+  .auto-index{
+    counter-reset: Serial;
+  }
+  
+  .auto-index td:first-child:before
+  {
+    counter-increment: Serial;      /* Increment the Serial counter */
+    content: counter(Serial); /* Display the counter */
+  }

@@ -80,27 +80,9 @@
   <input type="hidden" name="id" value="<?php echo $Searched_login_Users['id'] ?>">
   <input type="submit" value="Save Document" name="submit">
   </div>
- <!--  <div class="view_pdf">
-  <div id="viewpdf"></div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
-  
-  <script>
-    var viewer = $('#viewpdf');
-    PDFObject.embed('Appliction--2.pdf');
-  </script>
-  
-  </div> --><!-- end viewpdf -->
 </form>
 <?php //endforeach; ?>
-
-   <!--  <input type="file" name="fileToUpload" class="custom-file-input" id="inputGroupFile02">
-    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-  </div>
-  <div class="input-group-append">
-    <span class="input-group-text" id="">Save File</span>
-  </div> -->
   </div>
   </div>
   </div><!-- end save file -->
@@ -108,18 +90,28 @@
 
   <div class="part_3">
   <div class="print_file">
-<!--   echo "<script>location.href='../print_info.php'</script>";
- -->
+        <table class="table table-hover">
+  <thead class="bg-info th">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">User_id</th>
+			<th scope="col">File Name</th>
+			<th scope="col">Action</th>
+    </tr>
+  </thead>
+	<tbody>
 
-<!--   <div class="input-group mb-3">
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile02">
-    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-  </div>
-  <div class="input-group-append">
-    <span class="input-group-text" id="">Print</span>
-  </div>
-</div> -->
+		<?php foreach ($print_file as $i => $data_queue): ?>
+			<tr>
+				<td><a href="show_print_file.php?id=<?php echo $data_queue['id'] ?>"><?php echo $data_queue['id'] ?></a></td>
+				<td><?php echo $data_queue['user_id'] ?></td>
+				<td><?php echo $data_queue['path_location'] ?></td>
+        <td><a href="delete_file.php?id=<?php echo $data_queue['id'] ?>">Delete</a></td>
+      </tr>
+		<?php endforeach; ?>
+	</tbody>
+
+</table>
 </div><!-- end print file -->
  </div><!-- end part_3 -->
 
@@ -151,7 +143,7 @@
         <td><?php echo $show['print_id'] ?></td>
         <td><?php echo $show['id'] ?></td>
         <input type="hidden" name="id" value="<?php echo $show['id'] ?>">
-        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="controller/deleteUser.php?id=<?php echo $show['id'] ?>">Delete</a></td>
+        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?>">Delete</a></td>
 	</tr>
     <?php endforeach; ?>
 		

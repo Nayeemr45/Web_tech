@@ -1,0 +1,50 @@
+    $selectQuery = "SELECT *.t1 FROM `print_queue`.t1 , `user`.t2  WHERE t1.user_id =t2.id AND  t2.user_id= '$user_id'";
+
+
+
+
+SELECT user.name, course.name
+FROM `user`
+INNER JOIN `course` on user.course = course.id
+
+
+SELECT * FROM print_queue WHERE user_id = "SELECT id FROM user WHERE user_id= 'na3'"
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print PDF using inline iFrame</title>
+    <style>
+    	* { font: 15px 'Segoe UI'; }
+    </style>
+</head>
+<body>
+
+    <iframe 
+        src='uploads/nayeem45/EE.pdf' id='myFrame' 
+        	frameborder='1' style='border:0;' 
+        		width='600' height='400'>
+    </iframe>
+    <p>
+        <input type="button" id="bt" onclick="print()" value="Print PDF" />
+    </p>
+</body>
+
+<script>
+	let print = () => {
+    	let objFra = document.getElementById('myFrame');
+        objFra.contentWindow.focus();
+        objFra.contentWindow.print();
+    }
+    
+    // Using regular js features.
+    
+//     function print() {
+//         var objFra = document.getElementById('myFrame');
+//         objFra.contentWindow.focus();
+//         objFra.contentWindow.print();
+//     }
+</script>
+</html>

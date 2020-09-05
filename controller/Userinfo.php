@@ -14,3 +14,8 @@ function fetchShow_file($id){
 	return show_file($id);
 
 }
+
+function fetchShow_print_file($id){
+	return show_print_file($id);
+
+}

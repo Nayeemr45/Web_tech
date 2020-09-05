@@ -17,6 +17,9 @@ if (isset($_SESSION['user_id'])) {
 		$Searched_login_Users = login_User_info($_SESSION['user_id']);
 		$show_file = show_file($_SESSION['id']);
 
+        
+        		$print_file = print_file($_SESSION['id']);
+
 		//require_once '../searchalluser.php';
 		require_once '../user_home_page.php';
 

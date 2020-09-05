@@ -44,10 +44,34 @@ function searchUser($user_name){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+function finding_print_queue($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT print_queue.*,user.user_id FROM `print_queue` INNER JOIN `user` on print_queue.user_id = user.id WHERE user.user_id= '$user_id'";
+
+    
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
 
 function login_User_info($user_id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `user` WHERE user_id = '$user_id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function print_file($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_queue` WHERE user_id = '$user_id' ORDER BY `id` DESC";
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -327,10 +351,35 @@ function updateUser1($id, $data){
     $conn = null;
     return true;
 }
+function delete_save_file($id){
+	$conn = db_conn();
+    $selectQuery = "DELETE FROM `path_info` WHERE `ID` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
 
+    return true;
+}
 function deleteUser($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `user` WHERE `ID` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+function deletefile($id){
+	$conn = db_conn();
+    $selectQuery = "DELETE FROM `print_queue` WHERE `ID` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([$id]);

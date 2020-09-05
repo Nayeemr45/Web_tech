@@ -179,10 +179,10 @@
   <h1>SEARCH FOR USERS :</h1>
 
 <nav class="navbar navbar-light">
-<form class="form-inline" method="post" action="controller/findUser.php">
+<form class="form-inline" method="post" action="find_print_queue.php">
 
   <input class="form-control mr-sm-2" type="search" placeholder="Search User ID" aria-label="Search" name="user_id" required/>
-  <button class="btn btn-danger my-2 my-sm-0" type="submit" name="findUser">Search</button>
+  <button class="btn btn-danger my-2 my-sm-0" type="submit" name="find_print_queue">Search</button>
 </form>
 </nav>
 </div><!-- end print file -->
