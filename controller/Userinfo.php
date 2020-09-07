@@ -6,8 +6,20 @@ function fetchAllUser(){
 	return showAllUser();
 
 }
+function fetchAllUser2(){
+	return showAllUser2();
+
+}
 function fetchUser($id){
 	return showUser($id);
+
+}
+function fetchUser2($id){
+	return showUser2($id);
+
+}
+function fetchShow_file_admin(){
+	return show_file_admin();
 
 }
 function fetchShow_file($id){

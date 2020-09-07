@@ -14,10 +14,46 @@ function showAllUser(){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+function showAllUser2(){
+	$conn = db_conn();
+    $selectQuery = 'SELECT * FROM `printer_info` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function show_file_admin(){
+	$conn = db_conn();
+    $selectQuery = 'SELECT * FROM `path_info` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
 
 function showUser($id){
 	$conn = db_conn();
 	$selectQuery = "SELECT * FROM `user` where ID = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+function showUser2($id){
+	$conn = db_conn();
+	$selectQuery = "SELECT * FROM `printer_info` where ID = ?";
 
     try {
         $stmt = $conn->prepare($selectQuery);

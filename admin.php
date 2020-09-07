@@ -2,6 +2,8 @@
 require_once 'controller/Userinfo.php';
 
 $users = fetchAllUser();
+$users2 = fetchAllUser2();
+$file2 = fetchShow_file_admin();
 
 ?>
 
@@ -52,7 +54,7 @@ $users = fetchAllUser();
         <li><a href="#" id="show_user2" class="btn">
           <span class="title">Show All User2</span>
           </a></li>
-        <li><a href="#" id="show_file" class="btn">
+        <li><a href="#" id="show_save_file" class="btn">
           <span class="title">Show Save file</span>
           </a></li>
         <li><a href="#" id="profile" class="btn">
@@ -159,21 +161,68 @@ $users = fetchAllUser();
  </div><!-- end part_2 -->
 
   <div class="part_3">
-  <div class="print_file">
- 
+  <div class="Show_All_User2">
+  <table class="table table-hover">
+        <thead class="bg-info th">
+            <tr>
+                    <th scope="col">User_name</th>
+                    <th scope="col">Shop Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users2 as $i => $user2): ?>
+                <tr>
+                    <a href="showUser2.php?id=<?php echo $user2['id'] ?>"></a>
+                    <td><?php echo $user2['user_name'] ?></td>
+                    <td><?php echo $user2['shop_name'] ?></td>
+                    <td><?php echo $user2['address'] ?></td>
+                    <td><a href="editUser2.php?id=<?php echo $user2['id'] ?>">Edit</a>&nbsp<a href="controller/deleteUser2.php?id=<?php echo $user2['id'] ?>">Delete</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div><!-- end print file -->
  </div><!-- end part_3 -->
 
  <div class="part_4">
-   <div class="show_file">
- 
+   <div class="show_save_file">
+        <table class="table table-hover auto-index">
+        <thead class="bg-info th">
+          <tr>
+            <th scope="col">serial</th>
+            <th scope="col">File Name</th>
+            <th scope="col">p_id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($file2 as $i => $show): ?>
+            <tr>
+                    <td><a href="showfile_admin.php?id=<?php echo $show['id'] ?>"><!-- <?php //echo $show['user_id'] ?> --></a></td>
+              <td><?php $str=$show['path_location']; 
+                        //Removing Directory name
+                        //$result= substr_replace($str ,"",0,11) ;
+                        echo $str;
+
+                        ?></td>
+
+              <td><?php echo $show['id'] ?></td>
+              <input type="hidden" name="id" value="<?php echo $show['id'] ?>">
+<!--               <td><a href="print_queue.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?>">Delete</a></td>
+ -->        </tr>
+          <?php endforeach; ?>
+          
+
+              </tbody>
+      </table>
 
    </div><!-- end show file -->
  </div><!-- end part_4 -->
 
 
  <div class="part_5" >
-   <div class="profile" id="p">
+   <div class="profile">
    
   </div><!-- end profile -->
  </div><!-- end part_5 -->
@@ -210,7 +259,7 @@ $users = fetchAllUser();
             document.querySelector('.part_5').style.display = "none";
 
          });
-          document.getElementById('show_file').addEventListener("click", function()
+          document.getElementById('show_save_file').addEventListener("click", function()
           { 
             document.querySelector('.part_1').style.display = "none";
             document.querySelector('.part_3').style.display = "none";
@@ -237,20 +286,7 @@ $users = fetchAllUser();
             document.querySelector('.part_5').style.display = "flex";
             document.querySelector('.edit_info').style.display = "none";
          });
-         document.getElementById('show').addEventListener("click", function()
-          { 
-            document.querySelector('.show_info').style.display = "grid";
-            document.querySelector('.show_info').style.gridRow="2 / span 2";
-            document.querySelector('.edit_info').style.display = "none";
-
-          });
-         document.getElementById('edit').addEventListener("click", function()
-          { 
-            document.querySelector('.edit_info').style.display = "grid";
-            document.querySelector('.edit_info').style.gridRow="2 / span 2";
-            document.querySelector('.show_info').style.display = "none";
-
-          });
+         
           
         </script>
         <script>
