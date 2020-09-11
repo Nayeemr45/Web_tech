@@ -25,15 +25,26 @@
 				<td><a href="show_searched_file.php?id=<?php echo $data_queue['id'] ?>"><?php echo $data_queue['id'] ?></a></td>
 				<td><?php echo $data_queue['user_id'] ?></td>
 				<td><?php echo $data_queue['path_location'] ?></td>
-        <td> <input type="button" id="bt" onclick="print('../uploads/<?php echo $data_queue['user_id'] ?>/<?php echo $data_queue['path_location'] ?>')" value="Print PDF" /></td>
+  <!--       <td> <input type="button" id="bt"  value="Print PDF" /></td>  -->
+          <td>
+             
+           <button type="submit" name="print" onclick="print1('../uploads/<?php echo $data_queue['user_id'] ?>/<?php echo $data_queue['path_location'] ?>')">Preview</button>
+          
+           <button type="submit" name="print" onclick="print('../uploads/<?php echo $data_queue['user_id'] ?>/<?php echo $data_queue['path_location'] ?>')">Print PDF</button>
+           
+           <a href="print_info.php?path_id=<?php echo $data_queue['path_id'] ?>&& price_id=<?php echo $data_queue['price_id']?>&& user_id=<?php echo $data_queue['user_id']?> && path_location=<?php echo $data_queue['path_location']?>">
+           <button type="submit" name="print" >ADD</button></a>
+           
+           <p><span style="color:red;">*</span> Must Click <span style="color:blue;">ADD </span>Button After <span style="color:blue;">print</span></p>
+         
+          </td>
 
-<!--  				<td><a href="../print.php?id=<?php echo $data_queue['user_id'] ?>">Print</a></td>
- -->            </tr>
 		<?php endforeach; ?>
-	</tbody>
+
+  </tbody>
 
 </table>
-<?php echo '<button><a href="javascript:history.go(-1)" title="Return to previous page">&laquo; Go back</a></button>'; ?>
+<?php echo "<button style='float:right;'><a href='welcome2.php'>Logout</a></button>"; ?>
 
 <!-- end table -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -42,24 +53,22 @@
 <script>
 	let print = (doc) => {
     	let objFra = document.createElement('iframe');   // Create an IFrame.
-        objFra.style.visibility = 'hidden';    // Hide the frame.
+        objFra.style.visibility = 'hidden';    // Hide the frame.   
         objFra.src = doc;                      // Set source.
         document.body.appendChild(objFra);  // Add the frame to the web page.
         objFra.contentWindow.focus();       // Set focus.
         objFra.contentWindow.print();      // Print it.
     }
     
-    
-    // Using regular js features.
-    
-//     function print(doc) {
-//         var objFra = document.createElement('iframe');
-//         objFra.style.visibility = 'hidden';
-//         objFra.src = doc;                  
-//         document.body.appendChild(objFra);
-//         objFra.contentWindow.focus();  
-//         objFra.contentWindow.print();  
-//     }
+	let print1 = (doc) => {
+    	let objFra = document.createElement('iframe');   // Create an IFrame.
+        objFra.style.visibility = 'show';    // Hide the frame.
+        objFra.style.width = '820px';    
+        objFra.style.height = '720px';    
+        objFra.src = doc;                      // Set source.
+        document.body.appendChild(objFra);  // Add the frame to the web page.
+        objFra.contentWindow.focus();       // Set focus.
+    }
 </script>
 </body>
 </html>

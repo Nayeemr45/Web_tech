@@ -22,6 +22,7 @@ if (isset($_POST['createUser'])) {
 elseif (isset($_POST['createUser2'])) {
 	$data['user_name'] = $_POST['user_name'];
 	$data['password'] = $_POST['password'];
+	$data['email'] = $_POST['email'];
 	$data['shop_name'] = $_POST['shop_name'];
 	$data['address'] = $_POST['address'];
 

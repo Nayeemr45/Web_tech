@@ -80,19 +80,44 @@ function searchUser($user_name){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
-function finding_print_queue($user_id){
+function finding_print_queue($user_id,$password){
     $conn = db_conn();
-    $selectQuery = "SELECT print_queue.*,user.user_id FROM `print_queue` INNER JOIN `user` on print_queue.user_id = user.id WHERE user.user_id= '$user_id'";
+
+    $selectQuery1 = "SELECT ID FROM `user` WHERE user_id = :user_id AND password = :password";
+
+    try{
+
+        $stmt1 = $conn->prepare($selectQuery1);
+        $stmt1->execute([
+        	'user_id' => $user_id,
+        	'password' => $password
+        ]);
+        $count=$stmt1->rowCount();
+        if($count > 0)
+    {   
+        $conn2 = db_conn();
+
+    $selectQuery2 = "SELECT print_queue.*,user.user_id FROM `print_queue` INNER JOIN `user` on print_queue.user_id = user.id WHERE user.user_id= '$user_id'";
 
     
     try{
-        $stmt = $conn->query($selectQuery);
+        $stmt2 = $conn2->query($selectQuery2);
     }catch(PDOException $e){
         echo $e->getMessage();
     }
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $rows;
+    $rows2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+    return $rows2;
+}else{
+    echo "invalid";
+
 }
+    }
+catch(PDOException $e){
+    echo $e->getMessage();
+}
+$conn = null;
+}
+
 
 function login_User_info($user_id){
     $conn = db_conn();
@@ -105,6 +130,40 @@ function login_User_info($user_id){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+
+function total_amount($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT SUM(price_amount) AS Total FROM `print_info`  WHERE printer_id= $id";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    while($rows = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+    $sum = $rows['Total'];
+    return $sum;
+    }
+}
+
+
+/* function User_info($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT user_id FROM `user` WHERE id = '$id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+} */
+
+
+
 function print_file($user_id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `print_queue` WHERE user_id = '$user_id' ORDER BY `id` DESC";
@@ -152,40 +211,47 @@ function loginUser($data){
         ]);
         $count=$stmt->rowCount();
         //echo $count;
-        session_start();
         if($count > 0)
     {   
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             /* $n=$stmt->fetch();
             print_r($n); */
-            $_SESSION["id"] =$row['id'];
-            //echo $_SESSION["id"]. "<br>";
+            if(!empty($data["remember"]))
+            {
+                setcookie ("user_login_id",$data["user_id"],time()+ (10 * 365 * 24 * 60 * 60));
+                setcookie ("user_login_name",$data["user_name"],time()+ (10 * 365 * 24 * 60 * 60));
+                setcookie ("user_login_password",$data["password"],time()+ (10 * 365 * 24 * 60 * 60));
+
+            }
+            else{
+                if(isset($_COOKIE["user_login_id"])){
+                    setcookie ("user_login_id","");
+                }
+                if(isset($_COOKIE["user_login_name"])){
+                    setcookie ("user_login_name","");
+                }
+                if(isset($_COOKIE["user_login_password"])){
+                    setcookie ("user_login_password","");
+                }
+
+
+/*                 header("Location:../index.php");  
+ */            }
+ session_start();
+
+ $_SESSION["id"] =$row['id'];
             
-            $_SESSION["user_id"] = $data["user_id"];
-            $_SESSION["user_name"] = $data["user_name"];
-            $_SESSION["password"] = $data["password"];
-          
-            echo "<script>location.href='welcome.php'</script>";
-         
+ $_SESSION["remember"] = $data["remember"];
+
+ 
+ $_SESSION["user_id"] = $data["user_id"];
+ $_SESSION["user_name"] = $data["user_name"];
+ $_SESSION["password"] = $data["password"];
+ header("Location:welcome.php");
+ //echo "<script>location.href='welcome.php'</script>";
+           
         }
-         /* if(password_verify ($pass_hash, $_SESSION['password'] )){
-        echo $_SESSION['password'];
-        echo "<br>";
-        echo $pass_hash;
-        echo "<br>"; 
-        $h = password_hash(1234,PASSWORD_DEFAULT);
-        echo $h;
-                echo "wow";
-       }
-       else{
-        echo "incorrect pass";
-        echo $_SESSION['password'];
-        echo "<br>";
-        echo $pass_hash;
-        
-       } */
-        //header('Location: ../showUser.php?id=' . $_POST["id"]);
     }
     else{
         echo "<script>alert('uname or pass incorrect!')</script>";
@@ -218,6 +284,13 @@ function loginUser2($data){
         session_start();
         if($count > 0)
     {   
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+        
+            $_SESSION["id"] =$row['id'];
+            $_SESSION["shop_name"] =$row['shop_name'];
+
         $_SESSION["user_name"] = $data["user_name"];
        $_SESSION["password"] = $data["password"];
       // $pass_hash = $data["password"];        
@@ -227,6 +300,7 @@ function loginUser2($data){
 
        echo "<script>location.href='welcome2.php'</script>";
     }
+}
     else{
         echo "<script>alert('uname or pass incorrect!')</script>";
         echo "<script>location.href='../login_register.php'</script>";
@@ -281,8 +355,8 @@ function collectdata($data){
 }
 function addPrint_queue($id){
     $conn = db_conn();
-    $selectQuery = "INSERT into print_queue (user_id, path_location, path_id)
-SELECT user_id, path_location, id FROM path_info WHERE path_info.id=$id";
+    $selectQuery = "INSERT into print_queue (user_id, path_location, path_id, price_id)
+SELECT path_info.user_id, path_info.path_location, path_info.id , price_info.id FROM `path_info` INNER JOIN `price_info` on path_info.id = price_info.path_id WHERE price_info.path_id=$id  AND path_info.id=$id";
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -292,6 +366,51 @@ SELECT user_id, path_location, id FROM path_info WHERE path_info.id=$id";
     return true;
 }
 
+function addPrint_info($printerid, $shop_name ,$path_id ,$price_id){
+    $conn = db_conn();
+    $selectQuery = "INSERT into print_info (user_id, price_amount, price_id,path_id) SELECT path_info.user_id, price_info.price,price_info.id, path_info.id FROM `path_info` INNER JOIN `price_info` on path_info.id = price_info.path_id WHERE price_info.path_id= $path_id LIMIT 0,1";
+
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $selectQuery = "UPDATE print_info set shop_name = ?, printer_id= ? where price_id = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	$shop_name, $printerid, $price_id
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+
+
+
+    $conn = null;
+    return true;
+}
+
+
+
+function addPrice($user_id,$price,$path_id){
+	$conn = db_conn();
+    $selectQuery = "INSERT into price_info (user_id, price, path_id)
+VALUES (:user_id, :price, :path_id)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	':user_id' => $user_id,
+        	':price' => $price,
+        	':path_id' => $path_id
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
 
 function addUser($data){
 	$conn = db_conn();
@@ -318,13 +437,14 @@ VALUES (:user_id, :user_name, :password, :email, :date_of_birth, :gender, :addre
 }
 function addUser2($data){
 	$conn = db_conn();
-    $selectQuery = "INSERT into printer_info (user_name, password,shop_name, address)
-VALUES (:user_name, :password, :shop_name, :address)";
+    $selectQuery = "INSERT into printer_info (user_name, password, email, shop_name, address)
+VALUES (:user_name, :password, :email, :shop_name, :address)";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
         	':user_name' => $data['user_name'],
         	':password' => $data['password'],
+        	':email' => $data['email'],
         	':shop_name' => $data['shop_name'],
         	':address' => $data['address']
         ]);
@@ -378,8 +498,8 @@ function updateUser1($id, $data){
         $stmt->execute([
         	$data['user_name'], $data['password'], $data['email'], $data['address'], $id
         ]);
-        echo "<script>location.href='welcome.php'</script>";
-            echo  $data['password'];
+        echo "success";
+            //echo  $data['password'];
     }catch(PDOException $e){
         echo $e->getMessage();
     }

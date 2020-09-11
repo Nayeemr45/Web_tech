@@ -6,104 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<!--     <link rel="stylesheet" href="style.css">
- -->    
- <style>
- .main{
-    /* margin-top: 200px; */
-    /* margin-left: 400px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* align-content: center; */
-    height: 100vh;
-    }
+     <link rel="stylesheet" href="../CSS/user2.css">
+   
 
-/* new */
-.header , .part_2 ,.part_3{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-    margin-left: 100px;
-}
-.part_4{
-  display: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-    margin-left: 50px;
-}
-
-.sidebar{
-  position: fixed;
-  top: 60px;
-  left: 0;
-  background: #f8f9fa;
-  width: 200px;
-   height: calc(100% - 80px);
-  border-bottom-left-radius: 20px;
-  transition: all 0.3s ease;
-}
-
- .sidebar ul li{
-    list-style : none;
- }
- .sidebar ul li a{
-
-    display: block;
-    padding: 20px;
-    color: #fff;
-    position: relative;
-    margin-bottom: 1px;
-    color: #000;
-    white-space: nowrap;
-}
-
- .sidebar ul li a:before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: #ff0000;
-  display: none;
-}
-/* 
- .sidebar ul li a span.icon{
-  margin-right: 10px;
-  display: inline-block;
-} */
-
- .sidebar ul li a span.title{
-  display: inline-block;
-}
-
- .sidebar ul li a:hover,
- .sidebar ul li a.active{
-  background: #ff4a4a;
-  color: #fff;
-}
-
- .sidebar ul li a:hover:before,
- .sidebar ul li a.active:before{
-  display: block;
-}
-
-.part_1{
-  display : flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
-  margin-left: 100px;
-  color : #ff4a4a;
-
-}
-.edit_info , .show_info{
-  margin-top : 20px;
-}
-    </style>
 
     
 </head>
@@ -124,7 +29,7 @@
         <a class="nav-link" href="#">How it works</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link log_reg" href="#">Logged in as <span style="color : #ff4a4a;  text-transform: uppercase;"><strong><?php echo $logged_as; ?></strong></span></a>
+      <a class="nav-link log_reg" href="#">Logged in as <span style="color : #ea3f80;  text-transform: uppercase;"><strong><?php echo $logged_as; ?></strong></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link log_reg" href="logout.php"><span style ="color : #00346b">LogOut</span></a>
@@ -166,7 +71,7 @@
 
 
 <div class="header">
-<h1>Welcome to Print Solution</h1>
+<h1>Total Price : <span style="color:blue;"><?php echo $totalamount1; ?></span> BDT</h1>
 </div><!-- end header -->
 
 <div class="inside_part">
@@ -179,10 +84,20 @@
   <h1>SEARCH FOR USERS :</h1>
 
 <nav class="navbar navbar-light">
-<form class="form-inline" method="post" action="find_print_queue.php">
+<form class="form-inline" method="post" action="find_print_queue.php" id="myForm" enctype="multipart/form-data">
 
-  <input class="form-control mr-sm-2" type="search" placeholder="Search User ID" aria-label="Search" name="user_id" required/>
-  <button class="btn btn-danger my-2 my-sm-0" type="submit" name="find_print_queue">Search</button>
+<div class="form-group">
+          <label for="User_id">Use Id :</label>
+          <input type="text" id="user_id" name="user_id" class="form-control" placeholder="Enter User Id" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password :</label>
+          <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+        </div>
+
+
+          <button class="btn btn-info my-2 my-sm-0" type="submit"  name="find_print_queue">Search</button>
 </form>
 </nav>
 </div><!-- end print file -->
@@ -198,7 +113,7 @@
    <div class="profile">
  
    <div class="profile_button">
-    <button id="show" type="button" class="btn btn-danger btn-lg but_css">Show Info</button>
+    <button id="show" type="button" class="btn btn-info btn-lg but_css">Show Info</button>
     <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
     </div><!-- end profile_button -->
 
@@ -240,7 +155,7 @@
     </div>
 
     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-    <button class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser" value="Update">Update</button>
+    <button class="btn btn-info btn-lg but_css" type="submit" name = "updateUser" value="Update">Update</button>
     </form>
       </div>
       
@@ -254,6 +169,12 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+function myFunction() {
+  document.getElementById("myForm").reset();
+}
+</script>
 
 
 <script type="text/javascript">

@@ -69,7 +69,7 @@ top: 0;
 left: 0;
 width: 3px;
 height: 100%;
-background: #ff0000;
+background: #138496;
 display: none;
 }
 
@@ -79,7 +79,7 @@ display: inline-block;
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active{
-background: #ff4a4a;
+background: #138496;
 color: #fff;
 }
 
@@ -102,7 +102,7 @@ justify-content: center;
 align-items: center;
 margin-top: 200px;
 margin-left: 100px;
-color : #ff4a4a;
+color : #138496;
 }
 /* ================ */
 /* end home part*/
@@ -120,7 +120,8 @@ margin-top : 20px;
 }
 
 .span_color{
-color : #dc3545;
+color : #138496;
+font-weight: bold;
 }
 /* ================ */
 /* end profile part*/

@@ -1,4 +1,5 @@
 <?php 
+require_once '../model.php';
 
 session_start();
 
@@ -11,7 +12,14 @@ if (isset($_SESSION['user_name'])) {
 
 	try {
     	
-    	$logged_as = $_SESSION['user_name'];
+		$logged_as = $_SESSION['user_name'];
+
+
+		$id = $_SESSION['id'];
+		$shop_name = $_SESSION['shop_name'];
+
+		$totalamount1=total_amount($_SESSION['id']);
+		
 		require_once '../user2_home_page.php';
 
     } catch (Exception $ex) {

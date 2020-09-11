@@ -90,6 +90,7 @@
 
   <div class="part_3">
   <div class="print_file">
+  <p>Your Selected Print File</p>
         <table class="table table-hover">
   <thead class="bg-info th">
     <tr>
@@ -124,7 +125,6 @@
       <th scope="col">serial</th>
 			<th scope="col">File Name</th>
 			<th scope="col">p_id</th>
-			<th scope="col">pr</th>
 			<th scope="col">Action</th>
     </tr>
   </thead>
@@ -139,11 +139,11 @@
 
                   ?></td>
 
-				<td><?php echo $show['printer_id'] ?></td>
-        <td><?php echo $show['print_id'] ?></td>
+<!-- 				<td><?php echo $show['printer_id'] ?></td>
+        <td><?php echo $show['print_id'] ?></td> -->
         <td><?php echo $show['id'] ?></td>
         <input type="hidden" name="id" value="<?php echo $show['id'] ?>">
-        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?>">Delete</a></td>
+        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>&& path_location=<?php echo $show['path_location'] ?>&& user_id=<?php echo $show['user_id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?> && path_location=<?php echo $show['path_location'] ?>">Delete</a></td>
 	</tr>
     <?php endforeach; ?>
 		
@@ -159,7 +159,7 @@
    <div class="profile">
    
    <div class="profile_button">
-    <button id="show" type="button" class="btn btn-danger btn-lg but_css">Show Info</button>
+    <button id="show" type="button" class="btn btn-info btn-lg but_css">Show Info</button>
     <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
     </div><!-- end profile_button -->
     <?php foreach ($Searched_login_Users as $i => $user): ?>
@@ -207,7 +207,7 @@
 		<?php foreach ($Searched_login_Users as $i => $user): ?>
     <a href="showUser.php?id=<?php echo $user['id'] ?>"></a>
       <div class="edit_info">
-      <form action="updateUser.php" method="POST" enctype="multipart/form-data">
+      <form action="updateUser.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="user_name">User Name :</label>
       <input value="<?php echo $user['user_name'] ?>" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
@@ -226,8 +226,8 @@
       <input value="<?php echo $user['address'] ?>" type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
     </div>
     <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
-    <input class="btn btn-danger btn-lg but_css" type="submit" name = "updateUser1" value="Update">
-    </form>
+    <input class="btn btn-info btn-lg but_css" type="submit" name = "updateUser1" value="Update">
+  </form>
       </div><!-- end edit_info -->
       <?php endforeach; ?>
 
@@ -306,6 +306,17 @@
           });
           
         </script>
+
+
+
+
+
+
+
+
+
+
+
         <script>
 // Add active class to the current button (highlight it)
 var header = document.getElementById("sidebar");

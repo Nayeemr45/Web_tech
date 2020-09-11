@@ -6,6 +6,7 @@ if (isset($_POST['User_login'])) {
 	$data['user_id'] = $_POST['user_id'];
 	$data['user_name'] = $_POST['user_name'];
     $data['password'] = $_POST['password'];
+    $data['remember'] = $_POST['remember'];
     
    /*  try {
     	

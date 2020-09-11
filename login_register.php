@@ -84,16 +84,21 @@
       <div class="form-group">
         <div class="form-group">
           <label for="user_id">User ID :</label>
-          <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" required>
+          <input type="text" id="user_id" name="user_id" class="form-control" value="<?php if(isset($_COOKIE["user_login_id"])) {echo $_COOKIE["user_login_id"];} ?>"  placeholder="Enter User ID" required>
         </div>
         <div class="form-group">
           <label for="user_name">User Name :</label>
-          <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required> 
+          <input type="text" id="user_name" name="user_name" class="form-control" value="<?php if(isset($_COOKIE["user_login_name"])) {echo $_COOKIE["user_login_name"];} ?>"   placeholder="Enter User Name" required> 
         </div>
         <div class="form-group">
           <label for="password">Password :</label>
-          <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+          <input type="password" id="password" name="password" class="form-control" value="<?php if(isset($_COOKIE["user_login_password"])) {echo $_COOKIE["user_login_password"];} ?>"   placeholder="Enter Password" required>
         </div>
+        <div class="form-group">
+          <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["user_login_id"])) { ?> checked <?php } ?> >
+          <label for="remember-me">Remember Me</label>
+        </div>
+
         <div class="but">
           <button type="submit" name = "User_login" class="btn btn-primary">Login</button>
         </div>

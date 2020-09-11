@@ -9,9 +9,7 @@ if (isset($_POST['updateUser'])) {
 	$data['address'] = $_POST['address'];
 
   if (updateUser($_POST['id'], $data)) {
-  	echo 'Successfully updated!!';
-  	//redirect to showStudent
-  	header('Location: ../showUser.php?id=' . $_POST["id"]);
+	  
   }
 }
 else if (isset($_POST['updateUser1'])) {

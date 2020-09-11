@@ -6,20 +6,32 @@
     margin-right:20px;
     margin-left:20px;
 } */
+
+label{
+    font-size: 20px !important;
+    color: black !important;
+}
 .register{
-margin-top: 80px;
+margin-top: 45px;
 display:none;
 }
 .login_css{
 margin-top: 80px;
 margin-left: 247px;
-display:flex;
+display: inline-block;
 }
 .login_css input{
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    padding-right:100px;
+}
+.register input{
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
     padding-right:100px;
 }
 .left,.right{
-width:300px;
+width:600px;
 }
 .left{
 float:left;

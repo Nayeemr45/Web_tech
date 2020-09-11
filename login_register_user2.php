@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login_reg2.css">
-</head>
+     -->
+     
+
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+     <link rel="stylesheet" href="css/login_reg2.css">
+
+    </head>
 <body>
 
 <div class="container-fluid">
@@ -25,38 +33,49 @@
    </div>
 
 
-    <form action="controller/createUser.php" method="POST" enctype="multipart/form-data" id="type">
+    <form action="controller/createUser.php" method="POST" enctype="multipart/form-data" >
 <div class="register">
 <div class="register_content">
 <div class="left">
-  <div class="form-group">
+
+          <div class="row">
+          <div class="input-field col s6">
     <label for="user_name">User Name :</label>
-    <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required>
+    <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" >
+    <span class="helper-text"></span>
   </div>
-  <div class="form-group">
+  <div class="input-field col s6">
     <label for="password">Password :</label>
-    <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+    <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password">
+    <span class="helper-text"></span>
   </div>
-  <div class="form-group">
-    <label for="shop_name">Shop Name :</label>
-    <input type="text" id="shop_name" name="shop_name" class="form-control"  placeholder="Enter Shop Name" required>
+  <div class="input-field col s6">
+    <label for="password">Email :</label>
+    <input type="email" id="email" name="email" class="form-control"  placeholder="Enter Email" >
+    <span class="helper-text"></span>
   </div>
 
-<!--   <div class="right">
- -->  <div class="form-group">
-    <label for="address">Address :</label>
-    <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address" required>
+  <div class="input-field col s6">
+    <label for="shop_name">Shop Name :</label>
+    <input type="text" id="shop_name" name="shop_name" class="form-control"  placeholder="Enter Shop Name">
+    <span class="helper-text"></span>
   </div>
+
+  <div class="input-field col s6">
+    <label for="address">Address :</label>
+    <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
+    <span class="helper-text"></span>
+  </div>
+
 
 
  <div class="but">
- <button type="submit" name = "createUser2" class="btn btn-primary">Register</button>
+ <button type="submit" name ="createUser2" onclick="return val()" class="btn waves-effect waves-light">Register</button>
  </div>
- </div><!-- end left -->
 
-<!--  </div> --><!-- end right -->
+  </div>
+ </div><!-- end left -->
 </div> <!-- end_register_content -->
- 
   </div><!-- end register -->
 </form>
   
@@ -64,16 +83,16 @@
 <div class="login_css">
   <form action="controller/User_login.php" method="POST" enctype="multipart/form-data" id="type>
   <div class="form-group">
-  <div class="form-group">
+  <div class="input-field col s6">
     <label for="user_name">User Name :</label>
     <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" required> 
   </div>
-  <div class="form-group">
+  <div class="input-field col s6">
     <label for="password">Password :</label>
-    <input type="text" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+    <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
   </div>
   <div class="but">
- <button type="submit" name = "User_login2" class="btn btn-primary">Login</button>
+ <button type="submit" name = "User_login2" class="btn waves-effect waves-light">Login</button>
  </div>
 </form>
   </div><!-- end login_css -->
@@ -85,11 +104,14 @@
 
     </div><!-- end container -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ -->
 
-<script src="js/login_register2.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="js/login_register3.js"></script>
 
 </body>
 </html>

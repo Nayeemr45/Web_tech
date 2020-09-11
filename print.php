@@ -9,10 +9,7 @@
 </head>
 <body>
         <?php echo $_GET['id']; ?>
-    <iframe 
-        src=''./uploads/<?php echo $_GET['id']; ?> / EE.pdf' id='myFrame' 
-        	frameborder='0'
-        		width='600' height='400'>
+    <iframe src="EE.pdf" width="100%" height="500px" id="myFrame">
     </iframe>
     <p>
         <input type="button" id="bt" onclick="print()" value="Print PDF" />
@@ -21,8 +18,8 @@
     <script>
 	let print = () => {
     	let objFra = document.getElementById('myFrame');
-        objFra.contentWindow.focus();
-        objFra.contentWindow.print();
+         objFra.contentWindow.focus();
+         objFra.contentWindow.print();
     }
     
     // Using regular js features.
