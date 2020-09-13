@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/edit-user1.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/user1.css">
@@ -143,8 +145,9 @@
         <td><?php echo $show['print_id'] ?></td> -->
         <td><?php echo $show['id'] ?></td>
         <input type="hidden" name="id" value="<?php echo $show['id'] ?>">
-        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>&& path_location=<?php echo $show['path_location'] ?>&& user_id=<?php echo $show['user_id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?> && path_location=<?php echo $show['path_location'] ?>">Delete</a></td>
-	</tr>
+        <td><a href="print_queue.php?id=<?php echo $show['id'] ?>&& path_location=<?php echo $show['path_location'] ?>&& user_id=<?php echo $show['user_id'] ?>"><button type="submit" name="print">Print</button></a></td>
+<!--         <td><a href="print_queue.php?id=<?php echo $show['id'] ?>&& path_location=<?php echo $show['path_location'] ?>&& user_id=<?php echo $show['user_id'] ?>"><button type="submit" name="print">Print</button></a>&nbsp<a href="delete_Save_file.php?id=<?php echo $show['id'] ?> && path_location=<?php echo $show['path_location'] ?>">Delete</a></td>
+ -->	</tr>
     <?php endforeach; ?>
 		
 
@@ -207,7 +210,7 @@
 		<?php foreach ($Searched_login_Users as $i => $user): ?>
     <a href="showUser.php?id=<?php echo $user['id'] ?>"></a>
       <div class="edit_info">
-      <form action="updateUser.php" method="post" enctype="multipart/form-data">
+      <form id="frmBox" action="updateUser.php" method="POST" onsubmit="return formSubmit();">
     <div class="form-group">
       <label for="user_name">User Name :</label>
       <input value="<?php echo $user['user_name'] ?>" type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name">
@@ -227,7 +230,10 @@
     </div>
     <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
     <input class="btn btn-info btn-lg but_css" type="submit" name = "updateUser1" value="Update">
+    <p id="success"></p>
+
   </form>
+
       </div><!-- end edit_info -->
       <?php endforeach; ?>
 
@@ -332,8 +338,8 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>

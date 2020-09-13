@@ -356,7 +356,7 @@ function collectdata($data){
 function addPrint_queue($id){
     $conn = db_conn();
     $selectQuery = "INSERT into print_queue (user_id, path_location, path_id, price_id)
-SELECT path_info.user_id, path_info.path_location, path_info.id , price_info.id FROM `path_info` INNER JOIN `price_info` on path_info.id = price_info.path_id WHERE price_info.path_id=$id  AND path_info.id=$id";
+SELECT path_info.user_id, path_info.path_location, path_info.id , price_info.id FROM `path_info` INNER JOIN `price_info` on path_info.id = price_info.path_id WHERE price_info.path_id=$id  AND path_info.id=$id LIMIT 0,1";
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){

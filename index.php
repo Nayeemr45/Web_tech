@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/mail.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
@@ -17,8 +20,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav">
   <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!--     <span class="navbar-toggler-icon"></span>
+ -->  </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
@@ -49,7 +52,7 @@
 <div class="col-lg-8 col-lg-offset-2">
 
   
-  <form id="contact-form" method="post" action="" role="form">
+  <form id="contact-form" method="post" action="contact.php" role="form">
 
   <div class="messages"></div>
 
@@ -65,8 +68,8 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="form_lastname">Lastname *</label>
-          <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+          <label for="subject">Subject *</label>
+          <input id="subject" type="text" name="subject" class="form-control" placeholder="Please enter your ubject *" required="required" data-error="Subject is required.">
           <div class="help-block with-errors"></div>
         </div>
       </div>
@@ -103,6 +106,7 @@
   </div>
 
   </form>
+  <p class="form-message"></p>
 
 </div>
 
@@ -116,9 +120,19 @@
 </footer>
 
     </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

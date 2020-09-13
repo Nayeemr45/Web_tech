@@ -12,7 +12,6 @@ $userid = $_SESSION['user_id'];
 
 
 
-addPrint_queue($_GET['id']);
 		// echo "Added Successfully";
 		// echo '<p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo; Go back</a></p>';
 
@@ -40,7 +39,8 @@ $path_id=$_GET['id'];
 $user_id=$_GET['user_id'];
 
 addPrice($user_id,$price,$path_id);
+echo "<script>location.href='welcome.php'</script>";
 
+addPrint_queue($_GET['id']);
 
- 
 ?>

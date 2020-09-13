@@ -20,6 +20,7 @@ else if (isset($_POST['updateUser1'])) {
 
   if (updateUser1($_POST['id'], $data)) {
      // echo 'Successfully updated!!';
+	// echo "<script>location.href='welcome.php'</script>";
 
 
   	//redirect to showStudent
