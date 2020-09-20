@@ -19,8 +19,8 @@ else if (isset($_POST['updateUser1'])) {
 	$data['address'] = $_POST['address'];
 
   if (updateUser1($_POST['id'], $data)) {
-     // echo 'Successfully updated!!';
-	// echo "<script>location.href='welcome.php'</script>";
+      echo 'Successfully updated!!';
+	 echo "<script>location.href='welcome.php'</script>";
 
 
   	//redirect to showStudent

@@ -8,6 +8,8 @@ if (isset($_POST['User_login'])) {
     $data['password'] = $_POST['password'];
     $data['remember'] = $_POST['remember'];
     
+
+    
    /*  try {
     	
     	$allSearchedUsers = searchUser($_POST['user_name']);
@@ -28,15 +30,6 @@ if (isset($_POST['User_login2'])) {
 	$data['user_name'] = $_POST['user_name'];
     $data['password'] = $_POST['password'];
     
-   /*  try {
-    	
-    	$allSearchedUsers = searchUser($_POST['user_name']);
-		require_once '../searchalluser.php';
-
-    } catch (Exception $ex) {
-    	echo $ex->getMessage();
-    }
- */
 
   if (loginUser2($data)) {
     

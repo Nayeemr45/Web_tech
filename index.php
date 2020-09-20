@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
     <style>
   
     </style>
@@ -17,7 +18,7 @@
 <body>
 
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav fixed-top">
   <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <!--     <span class="navbar-toggler-icon"></span>
@@ -42,12 +43,20 @@
   </div>
 </nav>
   <div class="header"> 
-    <h1>Welcome to Print Solution</h1>
+    
+    <div class="left">
+      <h1>Welcome to Print Solution</h1>
+    </div>
+
+    <div class="right">
+      <img src="images/1.jpg" alt="">
+    </div>
   </div>
 
   <div class="contactus" id="contact_us">
-  <p><span style="font-size: 24px;">Contact US</span>
-</p>
+  <p><span style="font-size: 24px;">Contact US</span></p><br>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9075661990883!2d90.39188911476641!3d23.71499469604531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8e003f37875%3A0xd3f831da84e1234e!2s31%20Hazi%20Ballu%20Road%20Water%20Works%20Rd%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1600624548020!5m2!1sen!2sbd" width="1450" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
   <div class="row">
 <div class="col-lg-8 col-lg-offset-2">
 
@@ -99,7 +108,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        <input type="submit" class="btn btn-danger btn-send" value="Send message">
+        <input type="submit" class="btn btn-info btn-send" value="Send message">
       </div>
     </div>
    
@@ -113,12 +122,59 @@
 </div>
 
   </div><!-- end contactus -->
-  <footer>
     <div class="footer">
-       <p>© Copyright 2020, All Rights Reserved</p>
-    </div>
-</footer>
+      <!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
 
+<!-- Footer Elements -->
+<div class="container">
+
+  <!-- Grid row-->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-12 py-5">
+      <div class="mb-5 flex-center">
+      
+        <!-- Facebook -->
+        <a class="fb-ic">
+          <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:#3b5998;"> </i>
+        </a>
+        <!-- Twitter -->
+        <a class="tw-ic">
+          <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:#00acee;"> </i>
+        </a>
+        <!-- Google +-->
+        <a class="gplus-ic">
+          <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:#db4a39;"> </i>
+        </a>
+        <!--Linkedin -->
+        <a class="li-ic">
+          <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x" style="color:#0e76a8;"> </i>
+        </a>
+        <!--Pinterest-->
+        <a class="pin-ic">
+          <i class="fab fa-pinterest fa-lg white-text fa-2x" style="color:#E60023;"> </i>
+        </a>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row-->
+
+</div>
+<!-- Footer Elements -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">
+  <p>© 2020 Copyright: All Rights Reserved</p>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    </div>
     </div>
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
  --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

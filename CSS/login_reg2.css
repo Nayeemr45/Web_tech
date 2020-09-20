@@ -1,4 +1,6 @@
-
+.row .col {
+float: none;
+}
 .main_button{
     margin-top: 80px;
 }
@@ -12,7 +14,7 @@ label{
     color: black !important;
 }
 .register{
-margin-top: 45px;
+margin-top: 25px;
 display:none;
 }
 .login_css{
@@ -27,7 +29,7 @@ display: inline-block;
 }
 .register input{
     margin-top: 5px !important;
-    margin-bottom: 5px !important;
+    margin-bottom: 20px !important;
     padding-right:100px;
 }
 .left,.right{

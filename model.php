@@ -213,42 +213,37 @@ function loginUser($data){
         //echo $count;
         if($count > 0)
     {   
+        
+        
+
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
-            /* $n=$stmt->fetch();
-            print_r($n); */
-            if(!empty($data["remember"]))
-            {
-                setcookie ("user_login_id",$data["user_id"],time()+ (10 * 365 * 24 * 60 * 60));
-                setcookie ("user_login_name",$data["user_name"],time()+ (10 * 365 * 24 * 60 * 60));
-                setcookie ("user_login_password",$data["password"],time()+ (10 * 365 * 24 * 60 * 60));
-
-            }
-            else{
-                if(isset($_COOKIE["user_login_id"])){
-                    setcookie ("user_login_id","");
-                }
-                if(isset($_COOKIE["user_login_name"])){
-                    setcookie ("user_login_name","");
-                }
-                if(isset($_COOKIE["user_login_password"])){
-                    setcookie ("user_login_password","");
-                }
-
-
-/*                 header("Location:../index.php");  
- */            }
+            if(isset($data['remember']))
+        {
+            setcookie ("user_login_id",$data['user_id'],time()+ (60 * 60 * 7),"/");
+            setcookie ("user_login_name",$data['user_name'],time()+ ( 60 * 60 * 7),"/");
+            setcookie ("user_login_password",$data['password'],time()+  (60 * 60 * 7),"/");
+        }
+        elseif(empty($data['remember'])){
+               
+                setcookie ("user_login_id",$data['user_id'],time()-1,"/");
+		        setcookie ("user_login_name",$data['user_name'],time()-1,"/");
+		        setcookie ("user_login_password",$data['password'],time()-1,"/");
+        
+    }
+ /*         $n=$stmt->fetch();
+            print_r($n); 
+            header("Location:../index.php");  
+ */            
  session_start();
 
- $_SESSION["id"] =$row['id'];
-            
- $_SESSION["remember"] = $data["remember"];
 
- 
+ $_SESSION["id"] =$row['id'];        
+ $_SESSION["remember"] = $data["remember"];
  $_SESSION["user_id"] = $data["user_id"];
  $_SESSION["user_name"] = $data["user_name"];
  $_SESSION["password"] = $data["password"];
- header("Location:welcome.php");
+header("Location:welcome.php");
  //echo "<script>location.href='welcome.php'</script>";
            
         }
@@ -303,7 +298,7 @@ function loginUser2($data){
 }
     else{
         echo "<script>alert('uname or pass incorrect!')</script>";
-        echo "<script>location.href='../login_register.php'</script>";
+        echo "<script>location.href='../login_register_user2.php'</script>";
 	
         $message = '<label>Wrong Data</label>';
         echo $message;
@@ -316,6 +311,72 @@ function loginUser2($data){
     $conn = null;
     return true;
 }
+function admin_login($data){
+
+	$conn = db_conn();
+    $selectQuery = "SELECT * FROM `admin` WHERE user_name = :user_name AND password = :password";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	'user_name' => $data['user_name'],
+        	'password' => $data['password']
+        ]);
+        $count=$stmt->rowCount();
+        echo $count;
+        session_start();
+        if($count > 0)
+    {   
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+        
+        $_SESSION["id"] =$row['id'];
+        $_SESSION["user_name"] = $data["user_name"];
+       $_SESSION["password"] = $data["password"];
+       echo "success";
+
+       echo "<script>location.href='welcome3.php'</script>";
+    }
+}
+    else{
+        echo "<script>alert('uname or pass incorrect!')</script>";
+        echo "<script>location.href='../admin.php'</script>";
+	
+        $message = '<label>Wrong Data</label>';
+        echo $message;
+    }
+       // return $count;
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+function getdata(){
+
+	$conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_info`";
+    try{
+         $stmt = $conn->prepare($selectQuery);
+         $stmt->execute();
+        $data=array();
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {   
+            $data[]=$row;
+        }
+
+        $q=json_encode($data);
+        return $q;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+}
+
+
+
+
+
 function collectdata($data){
 
 	$conn = db_conn();
@@ -498,8 +559,6 @@ function updateUser1($id, $data){
         $stmt->execute([
         	$data['user_name'], $data['password'], $data['email'], $data['address'], $id
         ]);
-        echo "success";
-            //echo  $data['password'];
     }catch(PDOException $e){
         echo $e->getMessage();
     }
@@ -523,6 +582,19 @@ function delete_save_file($id){
 function deleteUser($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `user` WHERE `ID` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+function deleteUser2($id){
+	$conn = db_conn();
+    $selectQuery = "DELETE FROM `printer_info` WHERE `ID` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([$id]);

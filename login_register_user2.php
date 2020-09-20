@@ -33,44 +33,44 @@
    </div>
 
 
-    <form action="controller/createUser.php" method="POST" enctype="multipart/form-data" >
+   <form action="controller/createUser.php" method="POST"  onsubmit="return Validate()" name="vform" >
 <div class="register">
 <div class="register_content">
 <div class="left">
 
           <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s6" id="username_div">
     <label for="user_name">User Name :</label>
-    <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" >
-    <span class="helper-text"></span>
+    <input type="text" id="user_name1" name="user_name1" class="form-control"  placeholder="Enter User Name" >
+    <span id="name_error"></span>
   </div>
-  <div class="input-field col s6">
+  <div class="input-field col s6" id="password_div">
     <label for="password">Password :</label>
-    <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password">
-    <span class="helper-text"></span>
+    <input type="password" id="password1" name="password1" class="form-control"  placeholder="Enter Password">
+    <span id="password_error"></span>
   </div>
-  <div class="input-field col s6">
+  <div class="input-field col s6" id="email_div">
     <label for="password">Email :</label>
-    <input type="email" id="email" name="email" class="form-control"  placeholder="Enter Email" >
-    <span class="helper-text"></span>
+    <input type="email" id="email1" name="email1" class="form-control"  placeholder="Enter Email" >
+    <span id="email_error"></span>
   </div>
 
-  <div class="input-field col s6">
+  <div class="input-field col s6" id="shop_name_div">
     <label for="shop_name">Shop Name :</label>
     <input type="text" id="shop_name" name="shop_name" class="form-control"  placeholder="Enter Shop Name">
-    <span class="helper-text"></span>
+    <span id="shop_name_error"></span>
   </div>
 
-  <div class="input-field col s6">
+  <div class="input-field col s6" id="address_div">
     <label for="address">Address :</label>
     <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address">
-    <span class="helper-text"></span>
+    <span id="address_error"></span>
   </div>
 
 
 
  <div class="but">
- <button type="submit" name ="createUser2" onclick="return val()" class="btn waves-effect waves-light">Register</button>
+ <button type="submit" name ="createUser2" class="btn waves-effect waves-light">Register</button>
  </div>
 
   </div>
@@ -78,6 +78,7 @@
 </div> <!-- end_register_content -->
   </div><!-- end register -->
 </form>
+  
   
 
 <div class="login_css">
@@ -112,6 +113,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script src="js/login_register3.js"></script>
-
+<!-- <script type="text/javascript" src="js/script.js"></script>
+ -->
 </body>
 </html>

@@ -28,9 +28,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 120px;
     margin-bottom: 220px;
   }
+
+/* heading */
+.left{
+  margin-top: -100px;
+  margin-left: 100px;
+}
+
+h1{
+  font-family: 'Balthazar', serif;
+}
+
+  /* image */
+.right{
+  margin-left: 300px;
+}
+
+/* map */
+iframe{
+  margin-bottom: 80px;
+}
 
 /* ================ */
 /* contact css */
@@ -39,7 +59,11 @@
     background-color: #fbfbfb;
     margin-bottom: 100px;
   }
-
+.contactus p{
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: large;
+}
 /* ================ */
 /* footer css */
 /* ================ */
