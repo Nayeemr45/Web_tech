@@ -18,7 +18,14 @@ if (isset($_SESSION['user_name'])) {
 		$id = $_SESSION['id'];
 		$shop_name = $_SESSION['shop_name'];
 
+		$Searched_login_Users=login_User2_info($_SESSION['id']);
+
 		$totalamount1=total_amount($_SESSION['id']);
+
+
+		$total_print_file=total_print_file($_SESSION['id']);
+		
+		$show_info=show_print_info($_SESSION['id']);
 		
 		require_once '../user2_home_page.php';
 
@@ -33,6 +40,7 @@ else{
 
 	echo "<h1>Please log In !</h1>";
 
+	echo "<br><a href='../login_register_user2.php'>Go Back</a><br>";
 	echo "<br><a href='logout.php'>Go Home</a><br>";
 
 }

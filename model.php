@@ -131,6 +131,20 @@ function login_User_info($user_id){
     return $rows;
 }
 
+
+function login_User2_info($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `printer_info` WHERE id = '$id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
 function total_amount($id){
     $conn = db_conn();
     $selectQuery = "SELECT SUM(price_amount) AS Total FROM `print_info`  WHERE printer_id= $id";
@@ -148,6 +162,26 @@ function total_amount($id){
     return $sum;
     }
 }
+
+function total_print_file($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_info`  WHERE printer_id= $id";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    }
+
+
+
 
 
 /* function User_info($id){
@@ -186,6 +220,20 @@ function show_file($user_id){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+
+function show_print_info($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT user.user_name,user.email,user.gender,print_info.price_amount FROM `print_info`  INNER JOIN `user` on print_info.user_id = user.id WHERE print_info.printer_id=$id";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
 function show_print_file($user_id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `path_info` WHERE user_id = '$user_id' ORDER BY `id` DESC";
@@ -566,6 +614,23 @@ function updateUser1($id, $data){
     $conn = null;
     return true;
 }
+
+function updateUser2($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE printer_info set user_name = ?, password = ?, email = ?, shop_name = ?,address = ? where ID = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	$data['user_name'], $data['password'], $data['email'], $data['shop_name'], $data['address'], $id
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 function delete_save_file($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `path_info` WHERE `ID` = ?";

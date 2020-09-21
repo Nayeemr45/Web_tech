@@ -1,0 +1,21 @@
+video{
+    width:500px;
+    height:500px;
+    margin-left: 500px;
+    border: 2px solid rgb(255, 1, 1);
+}
+
+.submit{
+    margin-top: -200px;
+    margin-left: 500px;
+    font-size: large;
+}
+
+p{
+    font-size: 24px;
+    margin-left: 500px;
+}
+.sub{
+    color: rgb(0, 83, 109);
+    font-weight: 600;
+}

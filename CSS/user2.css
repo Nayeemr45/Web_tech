@@ -8,14 +8,30 @@
     height: 100vh;
     }
 
+    .span_color{
+      color : #138496;
+      font-weight: bold;
+      }
 /* new */
-.header , .part_2 ,.part_3{
+.header , .part_2{
     display: none;
     justify-content: center;
     align-items: center;
     margin-top: 200px;
     margin-left: 100px;
 }
+.part_3{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+.part_3 .table{
+    width: 500px;
+
+}
+
 .part_4{
   display: none;
     justify-content: center;
@@ -91,4 +107,47 @@
 }
 .edit_info , .show_info{
   margin-top : 20px;
+}
+
+
+
+
+h3{
+  font-size: 2.2rem;
+}
+.content{
+  margin-left: 80px !important;
+  margin-top: -100px !important;
+}
+.card{
+  display: block !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  width: 300px !important;
+  height: 140px !important;
+}
+
+.footer{
+  display: block;
+  padding: 17px 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
+  background-color: rgba(71, 71, 71, 0.285);
+  margin-top: 21.15px;
+  margin-right: -20px;
+  margin-left: -20px;
+  border-radius: 4px;
+}
+.footer-text {
+  margin-bottom: -24px !important;
+  margin-top: -10px !important;
+}
+
+
+/* qr-scan */
+
+.qr-scan button{
+  margin-left: 10px;
 }

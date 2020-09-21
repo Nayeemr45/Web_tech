@@ -118,6 +118,9 @@ top : 10px;
 .edit_info , .show_info{
 margin-top : 20px;
 }
+.show_info{
+display: flex;
+}
 
 .span_color{
 color : #138496;
@@ -127,6 +130,12 @@ font-weight: bold;
 /* end profile part*/
 /* ================ */
 
+/* qr */
+.qr-p{
+  margin-left: 30px;
+  margin-top: -30px;
+  color: #138496;
+}
 
 
 /* ================ */

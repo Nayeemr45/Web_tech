@@ -12,7 +12,7 @@ if (isset($_SESSION['user_name'])) {
 
 	try {
 		$data=getdata();
-		//require_once '../admin_page.php';
+		require_once '../admin_page.php';
 		//echo $data;
 
 		/* foreach($data as $d){
