@@ -119,6 +119,19 @@ $conn = null;
 }
 
 
+function admin_info($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `admin` WHERE id = '$id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
 function login_User_info($user_id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `user` WHERE user_id = '$user_id'";
@@ -145,9 +158,44 @@ function login_User2_info($id){
 }
 
 
+function total_sell(){
+    $conn = db_conn();
+    $selectQuery = "SELECT SUM(price_amount) AS Total FROM `print_info`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    while($rows = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+    $sum = $rows['Total'];
+    return $sum;
+    }
+
+}
 function total_amount($id){
     $conn = db_conn();
     $selectQuery = "SELECT SUM(price_amount) AS Total FROM `print_info`  WHERE printer_id= $id";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    while($rows = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+    $sum = $rows['Total'];
+    return $sum;
+    }
+}
+function total_amount_user1($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT SUM(price_amount) AS Total FROM `print_info`  WHERE user_id= $id";
     try{
         $stmt = $conn->query($selectQuery);
         $stmt->execute();
@@ -166,6 +214,101 @@ function total_amount($id){
 function total_print_file($id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `print_info`  WHERE printer_id= $id";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function total_user1(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `user`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+function total_user2(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `printer_info`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function total_save_file(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `path_info`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function total_request_file(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_queue`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function total_printed_file_admin(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_info`";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function total_print_file_user1($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `print_info`  WHERE user_id= $id";
     try{
         $stmt = $conn->query($selectQuery);
         $stmt->execute();
@@ -311,6 +454,58 @@ header("Location:welcome.php");
     $conn = null;
     return true;
 }
+function forgot_pass($data){
+
+	$conn = db_conn();
+    $selectQuery = "SELECT * FROM `user` WHERE email = :email AND date_of_birth = :date_of_birth";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	'email' => $data['email'],
+        	'date_of_birth' => $data['date_of_birth']
+        ]);
+        $count=$stmt->rowCount();
+        //echo $count;
+        if($count > 0)
+    {   
+        $conn2 = db_conn();
+        $selectQuery2 = "UPDATE user set password = ? where email = ?";
+        try{
+            $stmt2 = $conn2->prepare($selectQuery2);
+            $stmt2->execute([
+                $data['password'],$data['email']
+            ]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+        
+        $conn2 = null;
+        echo "<script>location.href='../login_register.php'</script>";       
+
+
+      /*    while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+          
+        $id=$row['id'];
+        } 
+        return $id;  */  
+
+    }
+    else{
+        echo "<script>alert('email or date_of_birth incorrect!')</script>";
+        echo "<script>location.href='../forgot_pass.php'</script>";
+	
+        $message = '<label>Wrong Data</label>';
+        echo $message;
+    }
+       // return $count;
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+}
+
 
 function loginUser2($data){
 
@@ -584,6 +779,22 @@ VALUES (:user_id, :path_location)";
 
 
 
+function change_pass($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE user set password = ? where ID = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	$data['password'], $id
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 function updateUser($id, $data){
     $conn = db_conn();
     $selectQuery = "UPDATE user set user_name = ?, password = ?, email = ?,address = ? where ID = ?";
@@ -622,6 +833,21 @@ function updateUser2($id, $data){
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
         	$data['user_name'], $data['password'], $data['email'], $data['shop_name'], $data['address'], $id
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+function updateUser3($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE admin set password = ?, email = ? where ID = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+        	$data['password'], $data['email'], $id
         ]);
     }catch(PDOException $e){
         echo $e->getMessage();

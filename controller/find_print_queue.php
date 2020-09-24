@@ -5,8 +5,10 @@ require_once '../model.php';
 if (isset($_POST['find_print_queue'])) {
 
     try {
-        
-    	$all_data = finding_print_queue($_POST['user_id'],$_POST['password']);
+        session_start();
+        $_SESSION['user_id']=$_POST['user_id'];
+        $_SESSION['password']=$_POST['password'];
+    	$all_data = finding_print_queue($_SESSION['user_id'],$_SESSION['password']);
     require_once '../show_searched_file.php';
     
 

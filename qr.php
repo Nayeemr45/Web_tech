@@ -20,7 +20,7 @@
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });     
 scanner.addListener('scan', function(content) {
             //alert('Content: ' + content);
-            alert('Content: ' + 'Successful Login');
+            alert('Content: ' + 'Scanned Successful');
             window.open(content, "_blank");
         });      
 Instascan.Camera.getCameras().then(function (cameras) {
@@ -38,35 +38,5 @@ Instascan.Camera.getCameras().then(function (cameras) {
 
 </script>
 
-
-<!--     <input type="hidden" value="nayeem45" id="a">
-    <input type="hidden" value="EE.pdf" id="b">
-    <button onclick="price(document.getElementById('a').value,document.getElementById('b').value)" >Print</button>
-    <p id="demo"></p>
-
-
- <script src="index.js"></script>
- 
-  -->
- <!--  <script>
-
-         function price(x , y){
-       this.x=x;
-       this.y=y;
-       var i;
-    const fs = require('fs')
-    const pdfparse = require('pdf-parse')
-
-    const pdffile = fs.readFileSync('uploads/'+x+'/'+ y)
-
-        pdfparse(pdffile).then(function (data) {
-            i=data.numpages;
-            var p=i*2;
-            document.getElementById("demo").innerHTML=i;
-            console.log(p);     
-})
-         }
-
-    </script> -->
 </body>
 </html>

@@ -18,7 +18,11 @@ if (isset($_SESSION['user_id'])) {
 		$show_file = show_file($_SESSION['id']);
 		$userid=$Searched_login_Users;
         
-        $print_file = print_file($_SESSION['id']);
+		$print_file = print_file($_SESSION['id']);
+		
+		$totalamount=total_amount_user1($_SESSION['id']);
+
+		$total_print_file_user1=total_print_file_user1($_SESSION['id']);
 
 		//require_once '../searchalluser.php';
 		require_once '../user_home_page.php';

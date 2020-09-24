@@ -6,6 +6,8 @@
     <title>Document</title>
      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
      <link rel="stylesheet" href="css/login_reg2.css">
+     <link rel="shortcut icon" href="images/ps.PNG">
+
     </head>
 <body>
 
@@ -13,7 +15,8 @@
    <div class="main_button">
    <button id="log" type="button" class="btn btn-primary btn-lg but_css">Login</button>
     <button id="reg" type="button" class="btn btn-secondary btn-lg but_css">Rgister</button>
-  <a href="index.php"><button type="button" class="btn btn-secondary btn-lg but_css">Back to Home</button>
+    <a href="login_register.php"><button type="button" class="btn btn-secondary btn-lg but_css">Back</button>
+    <a href="index.php"><button type="button" class="btn btn-secondary btn-lg but_css">Back to Home</button>
 </a>
 
 <!-- <div class="second_button">
@@ -87,6 +90,8 @@
  <button type="submit" name = "User_login2" class="btn waves-effect waves-light">Login</button>
  </div>
 </form>
+<img src="images/3.jpg" alt="">
+
   </div><!-- end login_css -->
 
 

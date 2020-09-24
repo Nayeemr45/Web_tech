@@ -17,6 +17,7 @@ $file2 = fetchShow_file_admin();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/admin.css">
     <link rel="stylesheet" href="../CSS/adminlte.min.css">
+    <link rel="shortcut icon" href="../images/ps.PNG">
 
 </head>
 <body>
@@ -77,11 +78,11 @@ $file2 = fetchShow_file_admin();
             <div class="content">
                 <div class="container-fluid">
                     <div class="card-deck">
-
+                    
                         <div class="card-1">
                             <div class="card bg-info">
                                 <div class="card-body text-left">
-                                    <h3>100/= BDT</h3>
+                                    <h3><?php if(isset($total_sell)){ echo $total_sell;} else{ echo "0";} ?>/= BDT</h3>
                                     <p class="card-text">Sell</p>
                                     <div class="footer">
                                         <p class="footer-text">More Info</p>
@@ -92,8 +93,8 @@ $file2 = fetchShow_file_admin();
                         <div class="card-2">
                             <div class="card bg-success">
                                 <div class="card-body text-left">
-                                    <h3>100</h3>
-                                    <p class="card-text">Total User</p>
+                                    <h3><?php if(isset($total_user1)){ echo $total_user1;} else{ echo "0";} ?></h3>
+                                    <p class="card-text">Toatal User1</p>
                                     <div class="footer">
                                         <p class="footer-text">More Info</p>
                                     </div>
@@ -101,27 +102,49 @@ $file2 = fetchShow_file_admin();
                             </div> 
                         </div><!-- end card-2 -->
                         <div class="card-3">
+                            <div class="card bg-danger">
+                                <div class="card-body text-left">
+                                    <h3><?php if(isset($total_user2)){ echo $total_user2;} else{ echo "0";} ?></h3>
+                                    <p class="card-text">Toatal User2</p>
+                                    <div class="footer">
+                                        <p class="footer-text">More Info</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div><!-- end card-3 -->
+                        <div class="card-4">
                             <div class="card bg-dark">
                                 <div class="card-body text-left">
-                                    <h3>100</h3>
+                                    <h3><?php if(isset($total_save_file)){ echo $total_save_file;} else{ echo "0";} ?></h3>
                                     <p class="card-text">Save File</p>
                                     <div class="footer">
                                         <p class="footer-text">More Info</p>
                                     </div>                                
                                 </div>
                             </div> 
-                        </div><!-- end card-3 -->
-                        <div class="card-4">
+                        </div><!-- end card-4 -->
+                        <div class="card-5">
                             <div class="card bg-warning">
                                 <div class="card-body text-left">
-                                    <h3>100</h3>
+                                    <h3><?php if(isset($total_print_file)){ echo $total_print_file;} else{ echo "0";} ?></h3>
                                     <p class="card-text">Printed file</p>
                                     <div class="footer">
                                         <p class="footer-text">More Info</p>
                                     </div>                                
                                 </div>
                             </div> 
-                        </div><!-- end card-1 -->
+                        </div><!-- end card-5 -->
+                        <div class="card-6">
+                            <div class="card bg-dark">
+                                <div class="card-body text-left">
+                                    <h3><?php if(isset($total_request_file)){ echo $total_request_file;} else{ echo "0";} ?></h3>
+                                    <p class="card-text">Print request file</p>
+                                    <div class="footer">
+                                        <p class="footer-text">More Info</p>
+                                    </div>                                
+                                </div>
+                            </div> 
+                        </div><!-- end card-6 -->
                     </div><!-- end card-deck -->
                 </div><!-- end container-fluid -->
             </div><!-- end content -->
@@ -223,7 +246,53 @@ $file2 = fetchShow_file_admin();
 
  <div class="part_5" >
    <div class="profile">
-   
+
+   <div class="profile_button">
+                <button id="show" type="button" class="btn btn-info btn-lg but_css">Show Info</button>
+                <button id="edit" type="button" class="btn btn-secondary btn-lg but_css">Edit Info</button>
+                </div><!-- end profile_button -->
+
+   <?php foreach ($admin_info as $i => $admin): ?>
+    <div class="show_info">
+
+                
+                  <div class="form-group">
+                    <label for="user_name">User Name :</label>
+                    <span class ="span_color"><?php echo $admin['user_name']; ?></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password">Password :</label>
+                    <span class ="span_color"><?php echo $admin['password']; ?></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email :</label>
+                    <span class ="span_color"><?php echo $admin['email']; ?></span>
+                  </div>
+                  </div><!-- end show_info -->
+
+                  <?php endforeach; ?>
+                  <?php foreach ($admin_info as $i => $admin): ?>
+
+                  <div class="edit_info">
+                  <form id="frmBox" action="updateUser.php" method="POST" onsubmit="return formSubmit();">
+
+                      <div class="form-group">
+                        <label for="password">Password :</label>
+                        <input value="<?php echo $admin['password'] ?>" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input value="<?php echo $admin['email'] ?>" type="text" id="password" name="password" class="form-control"  placeholder="Enter Password">
+                      </div>
+                      <input type="hidden" name="id" value="<?php echo $admin['id'] ?>">
+                        <input class="btn btn-info btn-lg but_css" type="submit" name = "updateUser3" value="Update">
+                        
+                      </form>
+
+                      </div><!-- end edit_info -->
+                      <?php endforeach; ?>
+
   </div><!-- end profile -->
  </div><!-- end part_5 -->
 
@@ -287,7 +356,21 @@ $file2 = fetchShow_file_admin();
             document.querySelector('.edit_info').style.display = "none";
          });
          
-          
+          document.getElementById('show').addEventListener("click", function()
+{ 
+  document.querySelector('.show_info').style.display = "inline";
+  document.querySelector('.show_info').style.gridRow="2 / span 2";
+  document.querySelector('.edit_info').style.display = "none";
+
+});
+document.getElementById('edit').addEventListener("click", function()
+{ 
+  document.querySelector('.edit_info').style.display = "grid";
+  document.querySelector('.edit_info').style.gridRow="2 / span 2";
+  document.querySelector('.show_info').style.display = "none";
+
+});
+
         </script>
         <script>
 // Add active class to the current button (highlight it)

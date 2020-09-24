@@ -4,21 +4,26 @@ require_once '../model.php';
 session_start();
 
 if (isset($_SESSION['user_name'])) {
-	//echo "<h1> Welcome ".$_SESSION['user_name']."</h2>";
-	//echo "<a href='product.php'>Product</a><br>";
-
-	//echo "<a href='../user_home_page.php'>Home</a><br>";
-	//echo "<br><a href='logout.php'>Logout</a><br>";
 
 	try {
 		$data=getdata();
+		$admin_info = admin_info($_SESSION['id']);
+
+		$total_sell=total_sell();
+
+		$total_print_file=total_printed_file_admin();
+
+		$total_user1=total_user1();
+
+		$total_user2=total_user2();
+
+		$total_save_file=total_save_file();
+
+		$total_request_file=total_request_file();
+
+
 		require_once '../admin_page.php';
-		//echo $data;
 
-		/* foreach($data as $d){
-			print_r($d);
-
-		} */
     } catch (Exception $ex) {
     	echo $ex->getMessage();
     }

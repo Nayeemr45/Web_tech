@@ -6,11 +6,14 @@
     <title>Document</title>
 
         <!-- Bootstrap file -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <!-- Custom Css file -->
+       -->  <!-- Custom Css file -->
+    <link rel="stylesheet" href="CSS/css/bootstrap.min.css">
+      <script src="js/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="CSS/login_reg.css">
-    
+    <link rel="shortcut icon" href="images/ps.PNG">
 </head>
 <body>
 
@@ -28,69 +31,71 @@
     </div>
    </div>
 
-    <form action="controller/createUser.php>" method="POST" enctype="multipart/form-data" >
+    <form action="controller/createUser.php" method="POST" enctype="multipart/form-data" onsubmit="return Validate()" name="vform">
       <div class="register">
         <div class="register_content">
           <div class="left">
-            <div class="form-group">
+            <div class="form-group" id="user_id_div">
               <label for="user_id">User ID :</label>
-              <input type="text" id="user_id" name="user_id" class="form-control"  placeholder="Enter User ID" >
-              <span class="error"><?php if(isset($idErr)){echo $idErr;}?></span>
+              <input type="text" id="user_id1" name="user_id" class="form-control"  placeholder="Enter User ID" >
+              <span id="id_error"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="username_div">
               <label for="user_name">User Name :</label>
-              <input type="text" id="user_name" name="user_name" class="form-control"  placeholder="Enter User Name" >
-              <span class="error"><?php if(isset($nameErr)){echo $nameErr;}?></span>
+              <input type="text" id="user_name1" name="user_name" class="form-control"  placeholder="Enter User Name" >
+              <span id="name_error"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="password_div">
               <label for="password">Password :</label>
-              <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password" >
-              <span class="error"><?php if(isset($passErr)){echo $passErr;}?></span>
+              <input type="password" id="password1" name="password" class="form-control"  placeholder="Enter Password" >
+              <span id="password_error"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="email_div">
               <label for="email">Email :</label>
-              <input type="email" id="email" name="email" class="form-control"  placeholder="Enter Email" >
-              <span class="error"><?php if(isset($emailErr)){ echo $emailErr;}?></span>
+              <input type="email" id="email1" name="email" class="form-control"  placeholder="Enter Email" >
+              <span id="email_error"></span>
             </div>
 
             </div><!-- end left -->
             
             <div class="right">
-              <div class="form-group">
+              <div class="form-group" id="date_of_birth_div">
                 <label for="date_of_birth">Date of Birth :</label>
-                <input type="date" id="date_of_birth" name="date_of_birth" class="form-control"  placeholder="Enter Date of Birth" >
-                <span class="error"><?php if(isset($dobErr)){echo $dobErr;}?></span>
+                <input type="date" id="date_of_birth1" name="date_of_birth" class="form-control"  placeholder="Enter Date of Birth" >
+                <span id="date_error"></span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" id="gender_div">
                 <label for="gender">Gender :</label>               
-                <select class="form-control  id="gender" name="gender" form="type">
+                <select class="form-control"  id="gender1" name="gender"  >
+                  <option value=""></option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
     
-                <span class="error"><?php if(isset($genderErr)){echo $genderErr;}?></span>
+                <span id="gender_error"></span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" id="address_div">
                 <label for="address">Address :</label>
-                <input type="text" id="address" name="address" class="form-control"  placeholder="Enter Address" >
-                <span class="error"><?php if(isset($addressErr)){echo $addressErr;}?></span>
+                <input type="text" id="address1" name="address" class="form-control"  placeholder="Enter Address" >
+                <span id="address_error"></span>
               </div>
-
+              
+              <div class="form-group" id="type_div">
                 <label for="Type">Select Type :</label>
-
-              <select class="form-control  id="type" name="type" form="type">
-
+              <select class="form-control"  id="type1" name="type"  >
+                <option  value=""></option>
                 <option value="Student">Student</option>
                 <option value="Business">Business</option>
-              </select>
-              
-              <span class="error"><?php if(isset($typeErr)){echo $typeErr;}?></span>
+              </select>            
+              <span id="type_error"></span>
+              </div>
+
 
               <div class="but">
-               <button type="submit" name = "createUser" class="btn btn-primary" id="submit" onclick="register()">Register</button>
+               <button type="submit" name = "createUser" class="btn btn-primary">Register</button>
               </div>
             </div><!-- end right -->
           </div> <!-- end_register_content -->
@@ -115,11 +120,14 @@
             </div>
             <div class="form-group">
               <label for="password">Password :</label>
-              <input type="password" id="password1" name="password"  value="<?php if(isset($_COOKIE['user_login_password'])) { echo  $_COOKIE['user_login_password']; }?>" class="form-control" placeholder="Enter Password" required>
+              <input type="password" id="password" name="password"  value="<?php if(isset($_COOKIE['user_login_password'])) { echo  $_COOKIE['user_login_password']; }?>" class="form-control" placeholder="Enter Password" required>
             </div>
             <div class="form-group">
               <input type="checkbox" id="remember" name="remember" >
               <label for="remember-me">Remember Me</label>
+            </div>
+            <div class="form-group">
+              <label for="forgot_password"><a href="forgot_pass.php">Forgot Password ?</a></label>
             </div>
 
             <div class="but">
@@ -129,15 +137,17 @@
           </div><!-- end form-group -->
 
         </form>
+
+        <img src="images/3.jpg" alt="">
         
       </div><!-- end login_css -->
 </div><!-- end container -->
 
 <!-- Bootstrap file -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+ -->
 <!-- Javascript file -->
 <script src="js/login_register.js"></script>
 </body>

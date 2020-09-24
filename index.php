@@ -7,10 +7,15 @@
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/mail.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     -->
+     <link rel="stylesheet" href="CSS/css/bootstrap.min.css">
+      <script src="js/js/bootstrap.min.js"></script>
+      
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="shortcut icon" href="images/ps.PNG">
     <style>
   
     </style>
@@ -20,16 +25,15 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light main_nav fixed-top">
   <a class="navbar-brand" href="#"><span style= "color : #ff4a4a">Print</span> solution</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<!--     <span class="navbar-toggler-icon"></span>
- -->  </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">     <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto text-right" >
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">How it works</a>
+        <a class="nav-link" href="how_it_works1.php">How it works</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#contact_us" >Contact Us</a>
@@ -177,9 +181,10 @@
     </div>
     </div>
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
- --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ -->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+ -->
 
 
 

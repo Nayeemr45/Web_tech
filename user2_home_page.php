@@ -11,6 +11,7 @@
     <!-- Custom Css file -->
     <link rel="stylesheet" href="../CSS/user2.css">
     <link rel="stylesheet" href="../CSS/adminlte.min.css">
+    <link rel="shortcut icon" href="../images/ps.PNG">
 
    
 </head>
@@ -24,12 +25,12 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto text-right">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" id="home">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">How it works</a>
+            <a class="nav-link" href="../how_it_works3.php">How it works</a>
           </li>
           <li class="nav-item">
           <a class="nav-link log_reg" href="#">Logged in as <span style="color : #ea3f80;  text-transform: uppercase;"><strong><?php echo $logged_as; ?></strong></span></a>
@@ -67,7 +68,7 @@
 
  <!--    <div class="header">
       <h1>Total amount : <span style="color:blue;"><?php echo $totalamount1; ?></span>/= BDT</h1>
-    </div><!-- end header -->
+    </div>
  -->
     <div class="inside_part">
       <div class="part_1">
@@ -124,7 +125,7 @@
           </form>
           
           <div class="qr-scan">
-            <a href="../practice.php">
+            <a href="../qr.php">
             <button class="btn btn-info my-2 my-sm-0">Scan</button></a>
           </div>
 

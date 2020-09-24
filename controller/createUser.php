@@ -41,17 +41,6 @@ if (isset($_POST['createUser'])) {
 	$data['type'] = $_POST['type']; 
 
 
-/* 
-
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	  }
- */
-
-
 
   if (addUser($data)) {
 	//require_once '../login_register.php';

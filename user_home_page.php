@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Custom Css file -->
     <link rel="stylesheet" href="../CSS/user1.css">
+    <link rel="stylesheet" href="../CSS/adminlte.min.css">
+    <link rel="shortcut icon" href="../images/ps.PNG">
 
 </head>
 <body>
@@ -24,9 +26,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto text-right">
         <li class="nav-item">
-          <a class="nav-link" href="#">How it works</a>
+          <a class="nav-link" href="../how_it_works2.php">How it works</a>
         </li>
         <li class="nav-item">
           <a class="nav-link log_reg" href="#">Logged in as <span style="color : #ff4a4a;  text-transform: uppercase;"><strong><?php echo $logged_as; ?></strong></span></a>
@@ -62,14 +64,41 @@
 
 
 
-    <div class="header">
+ <!--    <div class="header">
       <h1>Welcome to Print Solution</h1>
-    </div><!-- end header -->
-
+    </div>
+ -->
     <div class="inside_part">
       <div class="part_1">
-        <h1>Welcome to Print Solution</h1>
-      </div><!-- end part_1 -->
+      <div class="content">
+                <div class="container-fluid">
+                    <div class="card-deck">
+
+                        <div class="card-1">
+                            <div class="card bg-info">
+                                <div class="card-body text-left">
+                                    <h3><?php if(isset($totalamount)){echo $totalamount;} else{echo "0";} ?>/= BDT</h3>
+                                    <p class="card-text">Toatal amount</p>
+                                    <div class="footer">
+                                        <p class="footer-text">More Info</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div><!-- end card-1 -->
+                        <div class="card-4">
+                            <div class="card bg-warning">
+                                <div class="card-body text-left">
+                                    <h3><?php if(isset($total_print_file_user1)){echo $total_print_file_user1;} else{echo "0";} ?></h3>
+                                    <p class="card-text">Printed file</p>
+                                    <div class="footer">
+                                        <p class="footer-text">More Info</p>
+                                    </div>                                
+                                </div>
+                            </div> 
+                        </div><!-- end card-1 -->
+                    </div><!-- end card-deck -->
+                </div><!-- end container-fluid -->
+            </div><!-- end content -->       </div><!-- end part_1 -->
 
       <div class="part_2">
         <div class="save_file">
@@ -103,7 +132,8 @@
 
                 <?php foreach ($print_file as $i => $data_queue): ?>
                   <tr>
-                    <td><a href="show_print_file.php?id=<?php echo $data_queue['id'] ?>"><?php echo $data_queue['id'] ?></a></td>
+                    <td><!-- <a href="show_print_file.php?id=<?php echo $data_queue['id'] ?>"> -->
+                    <?php echo $data_queue['id'] ?></a></td>
                     <td><?php echo $data_queue['user_id'] ?></td>
                     <td><?php echo $data_queue['path_location'] ?></td>
                     <td><a href="delete_file.php?id=<?php echo $data_queue['id'] ?>">Delete</a></td>
@@ -129,8 +159,8 @@
                </thead>
                <tbody>
 		              <?php foreach ($show_file as $i => $show): ?>
-		            	<tr>
-            	      <td><a href="showfile.php?id=<?php echo $show['id'] ?>"><!-- <?php //echo $show['user_id'] ?> --></a></td>
+		            	<tr>          	      
+                    <td><?php //echo $show['user_id'] ?> </a></td>
                     <td><?php $str=$show['path_location']; echo $str;?></td>
                     <td><?php echo $show['id'] ?></td>
                     <input type="hidden" name="id" value="<?php echo $show['id'] ?>">

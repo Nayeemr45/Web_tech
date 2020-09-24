@@ -27,6 +27,11 @@ if (isset($_SESSION['user_name'])) {
 		
 		$show_info=show_print_info($_SESSION['id']);
 		
+		/* if (isset($_SESSION['user_id'])) {
+			session_destroy();
+			 echo "Please login First";
+			echo "<button'><a href='welcome2.php'>Login</a></button>"; 
+		} */
 		require_once '../user2_home_page.php';
 
     } catch (Exception $ex) {

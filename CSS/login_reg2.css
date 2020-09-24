@@ -2,6 +2,7 @@
 float: none;
 }
 .main_button{
+    margin-left: 80px;
     margin-top: 80px;
 }
 /* .main_button .btn .but_css{
@@ -20,7 +21,7 @@ display:none;
 .login_css{
 margin-top: 80px;
 margin-left: 247px;
-display: inline-block;
+display: flex;
 }
 .login_css input{
     margin-top: 5px !important;
@@ -56,7 +57,20 @@ float:right;
     float: right;
 }
 
+
+img{
+    margin-left: 300px;
+    margin-top: -60px;
+
+}
 @media screen and (max-width:992px){
+    img{
+        width: 300px;
+    }
+    input{
+        width: 100px;
+        margin-left: 80px;
+        }
     .second_button{
         float: right;
         padding-top: 10px;

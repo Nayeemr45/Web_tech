@@ -1,6 +1,5 @@
 document.getElementById('home').addEventListener("click", function()
-{ document.querySelector('.header').style.display = "flex";
-  document.querySelector('.part_1').style.display = "none";
+{ document.querySelector('.part_1').style.display = "flex";
   document.querySelector('.part_2').style.display = "none";
   document.querySelector('.part_3').style.display = "none";
   document.querySelector('.part_4').style.display = "none";
@@ -11,7 +10,6 @@ document.getElementById('save_file').addEventListener("click", function()
 { 
   document.querySelector('.part_1').style.display = "none";
   document.querySelector('.part_2').style.display = "flex";
-  document.querySelector('.header').style.display = "none";
   document.querySelector('.part_3').style.display = "none";
   document.querySelector('.part_4').style.display = "none";
   document.querySelector('.part_5').style.display = "none";
@@ -21,7 +19,6 @@ document.getElementById('print_file').addEventListener("click", function()
 { 
   document.querySelector('.part_1').style.display = "none";
   document.querySelector('.part_3').style.display = "flex";
-  document.querySelector('.header').style.display = "none";
   document.querySelector('.part_2').style.display = "none";
   document.querySelector('.part_4').style.display = "none";
   document.querySelector('.part_5').style.display = "none";
@@ -31,7 +28,6 @@ document.getElementById('show_file').addEventListener("click", function()
 { 
   document.querySelector('.part_1').style.display = "none";
   document.querySelector('.part_3').style.display = "none";
-  document.querySelector('.header').style.display = "none";
   document.querySelector('.part_2').style.display = "none";
   document.querySelector('.part_4').style.display = "flex";
   document.querySelector('.part_5').style.display = "none";
@@ -41,7 +37,6 @@ document.getElementById('profile').addEventListener("click", function()
 { 
   document.querySelector('.part_1').style.display = "none";
   document.querySelector('.part_3').style.display = "none";
-  document.querySelector('.header').style.display = "none";
   document.querySelector('.part_2').style.display = "none";
   document.querySelector('.part_4').style.display = "none";
   document.querySelector('.part_5').style.display = "flex";
