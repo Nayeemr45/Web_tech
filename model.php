@@ -211,6 +211,60 @@ function total_amount_user1($id){
     }
 }
 
+
+
+function check_email($email){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `user` WHERE email= '$email'";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        if($count > 0){
+            echo "<span style='color:red;''>"."Email already exists"."</span>";
+            echo "<script>$('#submit').prop('disabled',true);</script>";
+        }
+        else{
+            echo "<span style='color:red;''>"."Email available for Registration"."</span>";
+           echo "<script>$('#submit').prop('disabled',false);</script>";
+          }
+
+        //return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+function check_user_id($user_id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `user` WHERE user_id= '$user_id'";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        if($count > 0){
+            echo "<span style='color:red;''>"."User Id already exists"."</span>";
+            echo "<script>$('#submit').prop('disabled',true);</script>";
+        }
+        else{
+            echo "<span style='color:red;''>"."User Id available for Registration"."</span>";
+           echo "<script>$('#submit').prop('disabled',false);</script>";
+          }
+
+        //return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
+
+
 function total_print_file($id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `print_info`  WHERE printer_id= $id";

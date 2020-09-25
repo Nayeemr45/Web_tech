@@ -37,8 +37,9 @@
           <div class="left">
             <div class="form-group" id="user_id_div">
               <label for="user_id">User ID :</label>
-              <input type="text" id="user_id1" name="user_id" class="form-control"  placeholder="Enter User ID" >
+              <input type="text" id="user_id1" name="user_id" class="form-control" onBlur="checkidAvailability()" placeholder="Enter User ID" >
               <span id="id_error"></span>
+              <span id="user-id-availability-status" style="font-size:12px;"></span>
             </div>
             <div class="form-group" id="username_div">
               <label for="user_name">User Name :</label>
@@ -52,8 +53,9 @@
             </div>
             <div class="form-group" id="email_div">
               <label for="email">Email :</label>
-              <input type="email" id="email1" name="email" class="form-control"  placeholder="Enter Email" >
+              <input type="email" id="email1" name="email" class="form-control" onBlur="checkemailAvailability()" placeholder="Enter Email" >
               <span id="email_error"></span>
+              <span id="user-email-availability-status" style="font-size:12px;"></span> 
             </div>
 
             </div><!-- end left -->
@@ -95,7 +97,7 @@
 
 
               <div class="but">
-               <button type="submit" name = "createUser" class="btn btn-primary">Register</button>
+               <button type="submit" id="submit" name = "createUser" class="btn btn-primary">Register</button>
               </div>
             </div><!-- end right -->
           </div> <!-- end_register_content -->
@@ -149,6 +151,40 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  -->
 <!-- Javascript file -->
+<script>
+//This function checks email-availability-status
+function checkemailAvailability() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "controller/check_availability.php",
+data:'email='+$("#email1").val(),
+type: "POST",
+success:function(data){
+$("#user-email-availability-status").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+
+function checkidAvailability() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "controller/check_availability.php",
+data:'user_id='+$("#user_id1").val(),
+type: "POST",
+success:function(data){
+$("#user-id-availability-status").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+
+</script>
+
 <script src="js/login_register.js"></script>
+<script src="js/jquery-3.5.1.min.js"></script>
+
 </body>
 </html>
