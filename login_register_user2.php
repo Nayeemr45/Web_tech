@@ -35,8 +35,10 @@
           <div class="row">
           <div class="input-field col s6" id="username_div">
     <label for="user_name">User Name :</label>
-    <input type="text" id="user_name1" name="user_name1" class="form-control"  placeholder="Enter User Name" >
+    <input type="text" id="user_name1" name="user_name1" class="form-control" onBlur="checkusernameAvailability()" placeholder="Enter User Name" >
     <span id="name_error"></span>
+    <span id="user-name-availability-status" style="font-size:12px;"></span>
+
   </div>
   <div class="input-field col s6" id="password_div">
     <label for="password">Password :</label>
@@ -64,7 +66,7 @@
 
 
  <div class="but">
- <button type="submit" name ="createUser2" class="btn waves-effect waves-light">Register</button>
+ <button type="submit" id="submit" name ="createUser2" class="btn waves-effect waves-light">Register</button>
  </div>
 
   </div>
@@ -107,8 +109,25 @@
  -->
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <script>
+
+  function checkusernameAvailability() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "controller/check_availability.php",
+data:'user_name1='+$("#user_name1").val(),
+type: "POST",
+success:function(data){
+$("#user-name-availability-status").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+ </script>
 
 <script src="js/login_register3.js"></script>
+<script src="js/jquery-3.5.1.min.js"></script>
 
 </body>
 </html>

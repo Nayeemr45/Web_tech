@@ -263,6 +263,31 @@ function check_user_id($user_id){
     $conn = null;
  }
 
+function check_user_name($user_name){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `printer_info` WHERE user_name= '$user_name'";
+    try{
+        $stmt = $conn->query($selectQuery);
+        $stmt->execute();
+
+        $count=$stmt->rowCount(); 
+        if($count > 0){
+            echo "<span style='color:red;''>"."User Name already exists"."</span>";
+            echo "<script>$('#submit').prop('disabled',true);</script>";
+        }
+        else{
+            echo "<span style='color:red;''>"."User Name available for Registration"."</span>";
+           echo "<script>$('#submit').prop('disabled',false);</script>";
+          }
+
+        //return $count;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+ }
+
 
 
 function total_print_file($id){

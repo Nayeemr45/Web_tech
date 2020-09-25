@@ -21,4 +21,10 @@ if(!empty($_POST["email"])) {
   check_user_id($user_id);
 }
 
+ if(!empty($_POST["user_name1"])) {
+  $user_name= $_POST["user_name1"];
+  
+  check_user_name($user_name);
+}
+
 ?>
