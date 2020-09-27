@@ -156,9 +156,9 @@
 function checkemailAvailability() {
 $("#loaderIcon").show();
 jQuery.ajax({
-url: "controller/check_availability.php",
-data:'email='+$("#email1").val(),
-type: "POST",
+  url: "controller/check_availability.php",
+  data:'email='+$("#email1").val(),
+  type: "POST",
 success:function(data){
 $("#user-email-availability-status").html(data);
 $("#loaderIcon").hide();
