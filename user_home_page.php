@@ -70,7 +70,7 @@
  -->
     <div class="inside_part">
       <div class="part_1">
-      <div class="content">
+        <div class="content">
                 <div class="container-fluid">
                     <div class="card-deck">
 
@@ -98,7 +98,8 @@
                         </div><!-- end card-1 -->
                     </div><!-- end card-deck -->
                 </div><!-- end container-fluid -->
-            </div><!-- end content -->       </div><!-- end part_1 -->
+            </div><!-- end content -->      
+      </div><!-- end part_1 -->
 
       <div class="part_2">
         <div class="save_file">
