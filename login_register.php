@@ -120,7 +120,7 @@
               <input type="password" id="password" name="password"  value="<?php if(isset($_COOKIE['user_login_password'])) { echo  $_COOKIE['user_login_password']; }?>" class="form-control" placeholder="Enter Password" required>
             </div>
             <div class="form-group">
-              <input type="checkbox" id="remember" name="remember" >
+              <input type="checkbox" id="remember" name="remember" checked>
               <label for="remember-me">Remember Me</label>
             </div>
             <div class="form-group">
